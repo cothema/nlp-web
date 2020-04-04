@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>
+    <span routerLink="/" style="cursor: pointer;">
+      NLP20
+      <sub><small>beta</small></sub>
+    </span>
+  </h1>
+
+  <div>
+    <div class="btn-group btn-group-toggle">
+      <label class="btn-primary" ngbButtonLabel routerLink="/home">
+        <input type="checkbox" ngbButton> Analýza
+      </label>
+      <label class="btn-primary" ngbButtonLabel routerLink="/links">
+        <input type="checkbox" ngbButton> Užitečné odkazy
+      </label>
+    </div>
+  </div>
+
+  <br/>
+
+  <router-outlet></router-outlet>
+
+  <div class="text-center" style="margin-top:2em;border-top:1px solid #000000">
+    Vytvořil s &hearts; <a href="miloshavlicek@gmail.com">Miloš Havlíček</a>.<br/>
+    Za spolupráci / podporu budu rád.
+  </div>
+</div>

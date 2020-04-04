@@ -1,0 +1,82 @@
+<fa-icon [icon]="faLanguage"></fa-icon>&nbsp;
+<b>{{'analysis.lang'|translate}}:</b> čeština
+
+<form (ngSubmit)="onSubmit()" #analysisForm="ngForm">
+  <div class="form-group">
+    <label for="text">
+      <b>{{'analysis.text'|translate}}:</b>
+    </label>
+    <input type="text" class="form-control" id="text"
+           required
+           [(ngModel)]="formModel.text" name="text"
+           #text="ngModel">
+    <div [hidden]="text.valid || text.pristine"
+         class="alert alert-danger">
+      Text není zadán.
+    </div>
+  </div>
+
+  <div class="form-group form-check">
+    <input type="checkbox" id="devMode" [(ngModel)]="devMode" [ngModelOptions]="{standalone: true}">
+    <label for="devMode">
+      &nbsp;Vývojářský režim
+    </label>
+
+    &nbsp;
+
+    <input type="checkbox" id="showStats" [(ngModel)]="showStats" [ngModelOptions]="{standalone: true}">
+    <label for="showStats">
+      &nbsp;Zobrazit statistiky
+    </label>
+
+    &nbsp;
+
+    <input type="checkbox" id="showVerbalTypes" [(ngModel)]="showVerbalTypes" [ngModelOptions]="{standalone: true}">
+    <label for="showVerbalTypes">
+      &nbsp;Zobrazit slovní druhy
+    </label>
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!analysisForm.form.valid">
+    Analyzovat
+  </button>
+  &nbsp;
+  <button *ngIf="!formModel.text.length" (click)="onSubmitExample()" class="btn btn-primary">
+    Vyzkoušet na ukázce
+  </button>
+</form>
+
+<div *ngIf="apiResponse" class="card" style="margin-top: 1em;">
+  <div class="card-body">
+    <h5 class="card-title">Analýza textu</h5>
+    <div class="card-text">
+      <div class="text-center">
+        <div>Analyzovaný text:</div>
+        <h6>{{apiResponse.text}}</h6>
+        <div *ngIf="showStats">
+        Počet slov: {{apiResponse.words.length}}<br />
+        Počet znaků: {{apiResponse.text.length}}<br />
+        </div>
+      </div>
+      <div *ngFor="let sentence of apiResponse.sentences">
+        <hr>
+        <div>Jednotlivá věta:</div>
+        <h6>{{sentence.text}}</h6>
+        Typ věty: oznamovací
+        <div *ngIf="showStats">
+          Počet slov: {{sentence.words.length}}<br />
+          Počet znaků: {{sentence.text.length}}<br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="apiResponse && devMode" class="card" style="margin-top: 1em;">
+  <div class="card-body">
+    <h5 class="card-title">API odpověď</h5>
+    <div class="card-text">
+      <ngx-json-viewer [json]="apiResponse" [expanded]="false"></ngx-json-viewer>
+    </div>
+  </div>
+</div>
