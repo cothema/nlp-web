@@ -23,4 +23,11 @@ export class ApiService {
       }).toPromise();
   }
 
+  async analyzeWord(word: string): Promise<any> {
+    return this.http.post(
+      this.baseUrl + '/analyze/word',
+      {
+        word
+      }).toPromise();
+  }
 }

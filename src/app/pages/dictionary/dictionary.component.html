@@ -1,22 +1,29 @@
-<fa-icon [icon]="faLanguage"></fa-icon>&nbsp;
-<b>{{'analysis.lang'|translate}}:</b> čeština
-
 <form (ngSubmit)="onSubmit()" #analysisForm="ngForm">
   <div class="form-group">
-    <label for="text">
-      <b>Hledané slovo:</b>
-    </label>
     <input type="text" class="form-control" id="text"
+           placeholder="Hledané slovo"
            required
            [(ngModel)]="formModel.text" name="text"
            #text="ngModel">
-    <div [hidden]="text.valid || text.pristine"
-         class="alert alert-danger">
-      Text není zadán.
-    </div>
+  </div>
+
+  <div *ngIf="formModel.text.length">
+    <fa-icon [icon]="faLanguage" style="font-size:2em;line-height:1em;position:relative;top:0.1em;"></fa-icon>&nbsp;
+    <select class="form-control" style="display: inline-block;width: auto;margin-bottom: 0.5em;">
+      <option>čeština</option>
+    </select>
   </div>
 
   <button type="submit" class="btn btn-success" [disabled]="!analysisForm.form.valid">
     Analyzovat
   </button>
 </form>
+
+<div *ngIf="apiResponse" class="card" style="margin-top: 1em;">
+  <div class="card-body">
+    <h5 class="card-title">Analýza slova</h5>
+    <div class="card-text">
+      <b>Výslovnost:</b> [{{apiResponse['pronunciation']}}]
+    </div>
+  </div>
+</div>

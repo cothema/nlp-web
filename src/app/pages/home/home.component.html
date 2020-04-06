@@ -1,5 +1,11 @@
-<fa-icon [icon]="faLanguage"></fa-icon>&nbsp;
-<b>{{'analysis.lang'|translate}}:</b> čeština
+<div class="card">
+  <div class="card-header">
+    Vítejte v nejjednoduší, nejzábavnější a zároveň nejmocnější příručce českého jazyka! Možná ne úplně doslova,
+    ale co není, může být!
+  </div>
+</div>
+
+<hr/>
 
 <form (ngSubmit)="onSubmit()" #analysisForm="ngForm">
   <div class="form-group">
@@ -10,7 +16,14 @@
               #text="ngModel"></textarea>
   </div>
 
-  <div class="form-group form-check" *ngIf="formModel.text.length">
+  <div *ngIf="formModel.text.length">
+    <fa-icon [icon]="faLanguage" style="font-size:2em;line-height:1em;position:relative;top:0.1em;"></fa-icon>&nbsp;
+    <select class="form-control" style="display: inline-block;width: auto;margin-bottom: 0.5em;">
+      <option>čeština</option>
+    </select>
+  </div>
+
+  <div class="form-group form-check text-center" *ngIf="formModel.text.length">
     <input type="checkbox" id="devMode" [(ngModel)]="devMode" [ngModelOptions]="{standalone: true}">
     <label for="devMode">
       &nbsp;Vývojářský režim
@@ -20,28 +33,37 @@
 
     <input type="checkbox" id="showStats" [(ngModel)]="showStats" [ngModelOptions]="{standalone: true}">
     <label for="showStats">
-      &nbsp;Zobrazit statistiky
+      &nbsp;Statistiky
     </label>
 
     &nbsp;
 
     <input type="checkbox" id="showVerbalTypes" [(ngModel)]="showVerbalTypes" [ngModelOptions]="{standalone: true}">
     <label for="showVerbalTypes">
-      &nbsp;Zobrazit slovní druhy
+      &nbsp;Slovní druhy
+    </label>
+
+    &nbsp;
+
+    <input type="checkbox" id="showVerbalTypes" [(ngModel)]="showVerbalTypes" [ngModelOptions]="{standalone: true}">
+    <label for="showVerbalTypes">
+      &nbsp;Výroková logika
     </label>
   </div>
 
-  <button type="submit" class="btn btn-success" [disabled]="!analysisForm.form.valid">
-    Analyzovat
-  </button>
-  &nbsp;
-  <button *ngIf="!formModel.text.length" (click)="onSubmitExample()" class="btn btn-primary">
-    Vyzkoušet na ukázce
-  </button>
-  &nbsp;
-  <button class="btn btn-danger" (click)="onClear()" *ngIf="formModel.text.length">
-    Smazat
-  </button>
+  <div class="text-center">
+    <button type="submit" class="btn btn-success" [disabled]="!analysisForm.form.valid">
+      Analyzovat
+    </button>
+    &nbsp;
+    <button *ngIf="!formModel.text.length" (click)="onSubmitExample()" class="btn btn-primary">
+      Vyzkoušet na ukázce
+    </button>
+    &nbsp;
+    <button class="btn btn-danger" (click)="onClear()" *ngIf="formModel.text.length">
+      Smazat
+    </button>
+  </div>
 </form>
 
 <div *ngIf="apiResponse" class="card" style="margin-top: 1em;">

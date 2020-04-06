@@ -1,23 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../../shared.module';
-import { DictionaryComponent } from './dictionary.component';
+import { LearnComponent } from './learn.component';
 
 @NgModule({
-  declarations: [DictionaryComponent],
+  declarations: [LearnComponent],
   imports: [
     SharedModule,
     RouterModule.forChild([
       {
         path: '',
-        component: DictionaryComponent,
-      },
-      {
-        path: ':word',
-        component: DictionaryComponent,
+        component: LearnComponent,
       },
     ]),
   ]
 })
-export class DictionaryModule {
+export class LearnModule {
 }

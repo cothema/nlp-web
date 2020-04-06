@@ -1,0 +1,30 @@
+<h2>Datové sady</h2>
+
+<p style="color: red;font-weight: bold">
+  Za správnost datových sad neručíme!
+</p>
+
+<div class="row">
+  <div class="col-md-6" *ngFor="let dataset of datasets">
+    <div class="card">
+      <div class="card-header">
+        <h4 style="display:inline">{{dataset.title}}</h4>
+        <div class="float-right">
+          <button routerLink="/pricing" class="btn btn-dark btn-sm">
+            <fa-icon [icon]="faSearch"></fa-icon>&nbsp; Procházet
+          </button>
+          &nbsp;
+          <button routerLink="/pricing" class="btn btn-primary btn-sm">
+            <fa-icon [icon]="faDownload"></fa-icon>&nbsp; Stáhnout
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        {{dataset.body}}
+      </div>
+      <div class="card-footer">
+        <b>Licence:</b> {{dataset.license}}
+      </div>
+    </div>
+  </div>
+</div>

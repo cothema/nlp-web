@@ -5,11 +5,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
-  {
-    path: 'home',
     loadChildren: () =>
       import('./pages/home/home.module').then(m => m.HomeModule),
   },
@@ -32,6 +27,21 @@ const routes: Routes = [
     path: 'dictionary',
     loadChildren: () =>
       import('./pages/dictionary/dictionary.module').then(m => m.DictionaryModule),
+  },
+  {
+    path: 'learn',
+    loadChildren: () =>
+      import('./pages/learn/learn.module').then(m => m.LearnModule),
+  },
+  {
+    path: 'sign-in',
+    loadChildren: () =>
+      import('./pages/sign-in/sign-in.module').then(m => m.SignInModule),
+  },
+  {
+    path: 'datasets',
+    loadChildren: () =>
+      import('./pages/datasets/datasets.module').then(m => m.DatasetsModule),
   },
 ];
 
