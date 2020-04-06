@@ -3,20 +3,14 @@
 
 <form (ngSubmit)="onSubmit()" #analysisForm="ngForm">
   <div class="form-group">
-    <label for="text">
-      <b>{{'analysis.text'|translate}}:</b>
-    </label>
-    <input type="text" class="form-control" id="text"
-           required
-           [(ngModel)]="formModel.text" name="text"
-           #text="ngModel">
-    <div [hidden]="text.valid || text.pristine"
-         class="alert alert-danger">
-      Text není zadán.
-    </div>
+    <textarea rows="5" class="form-control" id="text"
+              placeholder="{{'analysis.text'|translate}}"
+              required
+              [(ngModel)]="formModel.text" name="text"
+              #text="ngModel"></textarea>
   </div>
 
-  <div class="form-group form-check">
+  <div class="form-group form-check" *ngIf="formModel.text.length">
     <input type="checkbox" id="devMode" [(ngModel)]="devMode" [ngModelOptions]="{standalone: true}">
     <label for="devMode">
       &nbsp;Vývojářský režim
@@ -44,6 +38,10 @@
   <button *ngIf="!formModel.text.length" (click)="onSubmitExample()" class="btn btn-primary">
     Vyzkoušet na ukázce
   </button>
+  &nbsp;
+  <button class="btn btn-danger" (click)="onClear()" *ngIf="formModel.text.length">
+    Smazat
+  </button>
 </form>
 
 <div *ngIf="apiResponse" class="card" style="margin-top: 1em;">
@@ -54,8 +52,8 @@
         <div>Analyzovaný text:</div>
         <h6>{{apiResponse.text}}</h6>
         <div *ngIf="showStats">
-        Počet slov: {{apiResponse.words.length}}<br />
-        Počet znaků: {{apiResponse.text.length}}<br />
+          Počet slov: {{apiResponse.words.length}}<br/>
+          Počet znaků: {{apiResponse.text.length}}<br/>
         </div>
       </div>
       <div *ngFor="let sentence of apiResponse.sentences">
@@ -64,8 +62,8 @@
         <h6>{{sentence.text}}</h6>
         Typ věty: oznamovací
         <div *ngIf="showStats">
-          Počet slov: {{sentence.words.length}}<br />
-          Počet znaků: {{sentence.text.length}}<br />
+          Počet slov: {{sentence.words.length}}<br/>
+          Počet znaků: {{sentence.text.length}}<br/>
         </div>
       </div>
     </div>

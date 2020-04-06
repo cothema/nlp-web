@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -7,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  faGithub = faGithub;
 
   constructor(
     translate: TranslateService,

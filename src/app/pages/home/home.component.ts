@@ -39,4 +39,9 @@ export class HomeComponent implements OnInit {
     this.apiResponse = await this.apiService.analyzeText(this.formModel.text);
   }
 
+  onClear() {
+    this.submitted = false;
+    this.apiResponse = undefined;
+    this.formModel.text = '';
+  }
 }

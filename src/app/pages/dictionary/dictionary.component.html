@@ -1,0 +1,22 @@
+<fa-icon [icon]="faLanguage"></fa-icon>&nbsp;
+<b>{{'analysis.lang'|translate}}:</b> čeština
+
+<form (ngSubmit)="onSubmit()" #analysisForm="ngForm">
+  <div class="form-group">
+    <label for="text">
+      <b>Hledané slovo:</b>
+    </label>
+    <input type="text" class="form-control" id="text"
+           required
+           [(ngModel)]="formModel.text" name="text"
+           #text="ngModel">
+    <div [hidden]="text.valid || text.pristine"
+         class="alert alert-danger">
+      Text není zadán.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!analysisForm.form.valid">
+    Analyzovat
+  </button>
+</form>

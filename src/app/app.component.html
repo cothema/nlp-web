@@ -1,28 +1,50 @@
 <div class="container">
-  <h1>
+  <div class="text-center">
+    <h1>
     <span routerLink="/" style="cursor: pointer;">
-      NLP20
+      Cothema
       <sub><small>beta</small></sub>
     </span>
-  </h1>
-
-  <div>
-    <div class="btn-group btn-group-toggle">
-      <label class="btn-primary" ngbButtonLabel routerLink="/home">
-        <input type="checkbox" ngbButton> Analýza
-      </label>
-      <label class="btn-primary" ngbButtonLabel routerLink="/links">
-        <input type="checkbox" ngbButton> Užitečné odkazy
-      </label>
-    </div>
+    </h1>
   </div>
 
   <br/>
 
   <router-outlet></router-outlet>
 
-  <div class="text-center" style="margin-top:2em;border-top:1px solid #000000">
-    Vytvořil s &hearts; <a href="miloshavlicek@gmail.com">Miloš Havlíček</a>.<br/>
-    Za spolupráci / podporu budu rád.
-  </div>
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-12 col-md">
+        <small class="text-muted">Vytvořeno s &hearts;</small><br/>
+        <a class="text-muted" href="mailto:havlicek@cothema.com">Cothema, s.r.o.</a>
+        <small class="d-block mb-3 text-muted">© 2020</small>
+        <small class="text-muted">Oceníme případný zájem o spolupráci nebo jakoukoliv formu podpory.</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Funkce</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" routerLink="/search">Vyhledávání dat</a></li>
+          <li><a class="text-muted" routerLink="/home">Analýza textu</a></li>
+          <li><a class="text-muted" routerLink="/dictionary">Slovník</a></li>
+          <li><a class="text-muted" routerLink="/spelling">Kontrola pravopisu</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Zdroje</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" routerLink="/links">Užitečné odkazy</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>O projektu</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" routerLink="/about">O aplikaci</a></li>
+          <li><a class="text-muted" routerLink="/pricing">Ceník a licence</a></li>
+          <li><a class="text-muted" href="https://github.com/cothema/nlp20-web">
+            <fa-icon [icon]="faGithub"></fa-icon>&nbsp; GitHub</a></li>
+          <li><a class="text-muted" routerLink="/edit">Pomoc s editací dat</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </div>
