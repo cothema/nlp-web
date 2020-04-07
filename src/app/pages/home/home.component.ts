@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
 import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage';
 import { ApiService } from '../../services/api.service';
 
@@ -18,6 +19,8 @@ export class HomeComponent implements OnInit {
   devMode = false;
   showStats = true;
   showVerbalTypes = true;
+  showPropositionalLogic = false;
+  faDollarSign = faDollarSign;
 
   constructor(
     private apiService: ApiService

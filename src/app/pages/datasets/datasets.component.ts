@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 
 @Component({
@@ -15,6 +16,7 @@ export class DatasetsComponent implements OnInit {
     body: string;
     license: string;
   }[] = [];
+  faExclamationTriangle = faExclamationTriangle;
 
   constructor() {
   }

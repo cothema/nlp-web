@@ -1,11 +1,9 @@
-<div class="card">
-  <div class="card-header">
+<div class="text-center" *ngIf="!formModel.text.length">
+  <div class="lead p-3" style="max-width: 700px;margin: 0 auto;">
     Vítejte v nejjednoduší, nejzábavnější a zároveň nejmocnější příručce českého jazyka! Možná ne úplně doslova,
     ale co není, může být!
   </div>
 </div>
-
-<hr/>
 
 <form (ngSubmit)="onSubmit()" #analysisForm="ngForm">
   <div class="form-group">
@@ -13,6 +11,7 @@
               placeholder="{{'analysis.text'|translate}}"
               required
               [(ngModel)]="formModel.text" name="text"
+              style="margin-top: 1em;font-size:1.2em"
               #text="ngModel"></textarea>
   </div>
 
@@ -45,9 +44,11 @@
 
     &nbsp;
 
-    <input type="checkbox" id="showVerbalTypes" [(ngModel)]="showVerbalTypes" [ngModelOptions]="{standalone: true}">
-    <label for="showVerbalTypes">
+    <input type="checkbox" id="showPropositionalLogic" [(ngModel)]="showPropositionalLogic" [ngModelOptions]="{standalone: true}">
+    <label for="showPropositionalLogic">
       &nbsp;Výroková logika
+      <a routerLink="/pricing" class="badge badge-success">
+        <fa-icon [icon]="faDollarSign"></fa-icon>&nbsp; Základ</a>
     </label>
   </div>
 
@@ -65,6 +66,11 @@
     </button>
   </div>
 </form>
+
+<div class="text-center p-5 text-warning" *ngIf="analysisForm.submitted && !apiResponse" style="font-size: 1.7em">
+  <div class="spinner-border text-warning" role="status"></div>&nbsp;
+  Probíhá analýza...
+</div>
 
 <div *ngIf="apiResponse" class="card" style="margin-top: 1em;">
   <div class="card-body">

@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from '../../shared.module';
-import { PricingComponent } from './pricing.component';
+import { ApiComponent } from './api.component';
 
 @NgModule({
-  declarations: [PricingComponent],
+  declarations: [ApiComponent],
   imports: [
     SharedModule,
     RouterModule.forChild([
       {
         path: '',
-        component: PricingComponent,
+        component: ApiComponent,
       },
     ]),
-    NgbNavModule,
   ]
 })
-export class PricingModule {
+export class ApiModule {
 }

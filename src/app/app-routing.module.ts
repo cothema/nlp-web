@@ -43,10 +43,30 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/datasets/datasets.module').then(m => m.DatasetsModule),
   },
+  {
+    path: 'contacts',
+    loadChildren: () =>
+      import('./pages/contacts/contacts.module').then(m => m.ContactsModule),
+  },
+  {
+    path: 'api',
+    loadChildren: () =>
+      import('./pages/api/api.module').then(m => m.ApiModule),
+  },
+  {
+    path: 'terms',
+    loadChildren: () =>
+      import('./pages/terms/terms.module').then(m => m.TermsModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules,
+    useHash: false,
+    anchorScrolling: 'enabled',
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
