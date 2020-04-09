@@ -1,0 +1,194 @@
+<app-learn-material-header [material]="learnMaterial"></app-learn-material-header>
+
+<app-learn-material-toolbar></app-learn-material-toolbar>
+
+<app-learn-material-learn-steps [material]="learnMaterial"></app-learn-material-learn-steps>
+
+<div>
+  <h3>
+    <fa-icon [icon]="faBook"></fa-icon>&nbsp; Učivo
+  </h3>
+
+  <ul ngbNav class="nav-tabs d-print-none" style="margin-top: 2em">
+    <li [ngbNavItem]="'theory'">
+      <a ngbNavLink>Teorie</a>
+    </li>
+    <li [ngbNavItem]="'exercise'">
+      <a ngbNavLink>Cvičení</a>
+    </li>
+    <li [ngbNavItem]="'recognition'">
+      <a ngbNavLink>Rozeznání počítačem</a>
+    </li>
+    <li [ngbNavItem]="'discussion'">
+      <a ngbNavLink>Dotazy a diskuze</a>
+    </li>
+  </ul>
+
+  <div class="p-3">
+    <div class="p-3">
+      V češtině máme 10 slovních druhů. 5 ohebných, které mění svůj tvar a 5 neohebných.
+    </div>
+
+    <h4>Ohebné slovní druhy:</h4>
+
+    <h5>1. Podstatná jména</h5>
+
+    <div class="p-3">
+      <p>
+        <b>Označují osoby, zvířata, věci…<br/>
+          Můžeme si na ně ukázat: ten, ta, to</b>
+      </p>
+
+      <b>Příklady:</b>
+      <blockquote>
+        <b>Kocour</b> je <b>zvíře</b>.<br/>
+        Můj nejlepší kamarád je <b>Martin</b>.
+      </blockquote>
+
+      <p>
+        V první větě jsou 2 podstatná jména: kocour a zvíře. Pomůcka ukazováním: <b>ten</b> kocour, <b>to</b>
+        zvíře.<br/>
+        V druhé větě je vlastní jméno: Martin. Můžeme si na něj ukázat: <b>ten</b> Martin.
+      </p>
+    </div>
+
+    <h5>2. Přídavná jména</h5>
+
+    <div class="p-3">
+      <p>
+        <b>Označují vlastnosti nebo vztahy podstatných jmen.<br/>
+          Ptáme se: Jaký? Který? Čí?</b>
+      </p>
+
+      <b>Příklad:</b>
+      <blockquote>
+        To je ale <b>krásný</b> pejsek.
+      </blockquote>
+      <p>
+        Můžeme se zeptat: "<b>Jaký pejsek?</b> Krásný."
+      </p>
+    </div>
+
+    <h5>3. Zájmena</h5>
+
+    <div class="p-3">
+      <p>
+        <b>Zastupují podstatná a přídavná jména.</b>
+      </p>
+      <b>Příklad:</b>
+      <blockquote>
+        <u>Pepa</u> šel do školy. <b>On</b> si nevzal svačinu.
+      </blockquote>
+      Zájmeno "<b>On</b>" v tomto případě zastupuje (podstatné) jméno "<b>Pepa</b>".
+    </div>
+
+    <h5>4. Číslovky</h5>
+
+    <div class="p-3">
+      <p>
+        <b>Vyjadřují počet, pořadí, násobek…</b>
+      </p>
+      <b>Příklady:</b>
+      <blockquote>
+        Ve třídě nás je <b>třicet</b>.<br/>
+        Stálo to <b>6</b> korun.<br/>
+      </blockquote>
+    </div>
+
+    <h5>5. Slovesa</h5>
+    <div class="p-3">
+      <p>
+        <b>Vyjadřují činnost, stav nebo děj.<br/>
+          Obvykle se můžeme zeptat: "Co dělá? Co se stalo? Co se děje?"</b>
+      </p>
+      <b>Příklady:</b>
+      <blockquote>
+        Martin <b>pracuje</b> na stavbě.<br/>
+        Venku <b>prší</b>.
+      </blockquote>
+      <p>
+        Můžeme se zeptat: "<b>Co dělá Martin?</b> Pracuje."<br/>
+        Pododobně v druhé větě: "<b>Co se děje venku?</b> Prší."
+      </p>
+    </div>
+
+    <hr/>
+
+    <h4>Neohebné slovní druhy:</h4>
+
+    <h5>6. Příslovce</h5>
+    <div class="p-3">
+      <p>
+        <b>Upřesňují děje a vlastnosti.<br/>
+          Můžeme se zeptat: "Kdy? Kde? Kam? Jak?"</b>
+      </p>
+      <b>Příklady:</b>
+      <blockquote>
+        Půjdu tam <b>zítra</b>.<br/>
+        Nechal jsem si ten sešit <b>doma</b>.<br/>
+        Venku je <b>krásně</b>.
+      </blockquote>
+      <p>
+        Můžeme se zeptat: "<b>Kdy?</b> Zítra." "<b>Kde?</b> Doma." "<b>Jak?</b> Krásně."
+      </p>
+    </div>
+
+    <h5>7. Předložky</h5>
+
+    <div class="p-3">
+      <p>
+        <b>Stojí před podstatnými jmény, přídavnými jmény, zájmeny a číslovkami.</b>
+      </p>
+      <b>Příklady:</b>
+      <blockquote>
+        Jablko spadlo <b>ze</b> stromu.<br/>
+        Zítra vstávám <b>do</b> školy.
+      </blockquote>
+    </div>
+
+    <h5>8. Spojky</h5>
+    <div class="p-3">
+      <p>
+        <b>Spojují slova nebo věty.</b>
+      </p>
+      <b>Příklady:</b>
+      <blockquote>
+        Honza <b>a</b> Jirka jsou nemocní.<br/>
+        Líbíl se mi ten film, <b>ale</b> raději mám knihy.
+      </blockquote>
+      <p>
+        V prvním případě spojka "a" spojuje slova "Honza" a "Jirka".<br/>
+        V druhém případě spojka "ale" spojuje věty.
+      </p>
+    </div>
+
+    <h5>9. Částice</h5>
+
+    <div class="p-3">
+      <p>
+        <b>Obvykle stojí na začátku věty.</b>
+      </p>
+      <b>Příklady:</b>
+      <blockquote>
+        <b>Kéž</b> by dnes bylo teplo.<br/>
+        <b>Ať</b> se nebojí.
+      </blockquote>
+    </div>
+
+    <h5>10. Citoslovce</h5>
+
+    <div class="p-3">
+      <p>
+        <b>Vyjadřují zvuky, hlasy, nálady a city.</b>
+      </p>
+      <b>Příklady:</b>
+      <blockquote>
+        <b>Au</b>! <b>Haf</b>! <b>Cink</b>!
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+<app-learn-material-links [material]="learnMaterial"></app-learn-material-links>
+
+<app-learn-material-footer [material]="learnMaterial"></app-learn-material-footer>

@@ -1,0 +1,30 @@
+<app-learn-material-header [material]="learnMaterial"></app-learn-material-header>
+
+<app-learn-material-toolbar></app-learn-material-toolbar>
+
+<app-learn-material-learn-steps [material]="learnMaterial"></app-learn-material-learn-steps>
+
+<div>
+  <h3>
+    <fa-icon [icon]="faBook"></fa-icon>&nbsp; Učivo
+  </h3>
+
+  <ul ngbNav class="nav-tabs d-print-none" style="margin-top: 2em">
+    <li [ngbNavItem]="'theory'">
+      <a ngbNavLink>Teorie</a>
+    </li>
+    <li [ngbNavItem]="'exercise'">
+      <a ngbNavLink>Cvičení</a>
+    </li>
+    <li [ngbNavItem]="'recognition'">
+      <a ngbNavLink>Rozeznání počítačem</a>
+    </li>
+    <li [ngbNavItem]="'discussion'">
+      <a ngbNavLink>Dotazy a diskuze</a>
+    </li>
+  </ul>
+</div>
+
+<app-learn-material-links [material]="learnMaterial"></app-learn-material-links>
+
+<app-learn-material-footer [material]="learnMaterial"></app-learn-material-footer>

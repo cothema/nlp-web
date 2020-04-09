@@ -1,0 +1,66 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h2 class="display-4">
+    Učivo základních škol
+  </h2>
+  <p class="lead p-3">
+    Pojďme si společně projít učivo probírané na základních školách
+    roztříděné dle ročníků.
+  </p>
+</div>
+
+<div style="max-width: 700px;margin:0 auto;">
+  <input type="text" [(ngModel)]="search" (input)="onSearch()" class="form-control" placeholder="Vyhledat"
+         style="font-size: 1.7em;text-align: center;"/>
+</div>
+
+<ng-template #contentCard let-contentElement="content">
+  <div class="card">
+    <div class="card-header">
+      <h4>{{contentElement.title}}</h4>
+    </div>
+    <div class="card-body">
+      {{contentElement.description}}
+      <div *ngIf="contentElement.descriptionNextSteps">
+        <hr/>
+        {{contentElement.descriptionNextSteps}}
+      </div>
+    </div>
+    <div class="card-footer">
+      <button *ngIf="contentElement.routerLink" [routerLink]="'/learn/' + contentElement.routerLink" type="button" class="btn btn-lg btn-block btn-outline-primary">
+        Naučit se
+      </button>
+      <ng-container *ngIf="!contentElement.routerLink">
+        <i>Připravujeme…</i>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<div *ngIf="search">
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h3 class="display-4">
+      Vyhledávání
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let searchContentElement of searchResults">
+      <ng-container *ngTemplateOutlet="contentCard; context: {content : searchContentElement}"></ng-container>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!search">
+  <div *ngFor="let contentElementByClasses of contentByClasses">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h3 class="display-4">
+        {{contentElementByClasses.class}}. třída
+      </h3>
+    </div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let contentElement of contentElementByClasses.content">
+        <ng-container *ngTemplateOutlet="contentCard; context: {content : contentElement}"></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+

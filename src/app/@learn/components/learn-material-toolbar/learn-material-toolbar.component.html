@@ -1,0 +1,13 @@
+<div class="d-print-none p-3 text-right">
+  <button (click)="onPrint()" class="btn btn-sm btn-outline-dark">
+    <fa-icon [icon]="faPrint"></fa-icon>&nbsp; Vytisknout
+  </button>
+  &nbsp;
+  <a routerLink="/sign-in" class="btn btn-sm btn-outline-primary">
+    <fa-icon [icon]="faEdit"></fa-icon>&nbsp; Upravit
+  </a>
+  &nbsp;
+  <a href="mailto:havlicek@cothema.com" class="btn btn-sm btn-outline-danger">
+    <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp; Nahlásit chybu
+  </a>
+</div>

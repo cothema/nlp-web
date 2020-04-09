@@ -1,0 +1,19 @@
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h2 class="display-4">
+    Přihlášení
+  </h2>
+
+  <div *ngIf="!(authService.user$ | async)" style="max-width: 400px;margin:0 auto;">
+    <button type="button" class="btn btn-primary btn-block" (click)="authService.signInViaGoogle()">
+      <fa-icon [icon]="faGoogle"></fa-icon>&nbsp;
+      Přihlásit se přes Google
+    </button>
+  </div>
+
+  <div *ngIf="(authService.user$ | async)" style="max-width: 400px;margin:0 auto;">
+    <button type="button" class="btn btn-primary btn-block" (click)="authService.signOut()">
+      <fa-icon [icon]="faSignOutAlt"></fa-icon>&nbsp;
+      Odhlásit se
+    </button>
+  </div>
+</div>

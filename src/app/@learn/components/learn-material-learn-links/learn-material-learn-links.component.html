@@ -1,0 +1,15 @@
+<div class="d-print-none">
+  <hr/>
+
+  <h3>Související odkazy</h3>
+
+  <ul>
+    <li *ngFor="let externalLink of material.externalLinks">
+      <a [href]="externalLink.url" target="_blank">{{externalLink.title}}
+        &nbsp;<sup><small>
+          <fa-icon [icon]="faExternalLinkAlt"></fa-icon>
+        </small></sup>
+      </a>
+    </li>
+  </ul>
+</div>

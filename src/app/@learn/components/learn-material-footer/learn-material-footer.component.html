@@ -1,0 +1,23 @@
+<div class="d-print-none">
+  <hr/>
+
+  <div class="p-2">
+    <fa-icon [icon]="faUser"></fa-icon>&nbsp;
+    <b>Autoři: </b>
+    <ng-container
+      *ngIf="material.authors && material.authors.length;else authors">
+      {{material.authors.join(',')}}
+    </ng-container>
+    <ng-template #authors>neuvedeno</ng-template>
+    <br/>
+    <fa-icon [icon]="faBalanceScale"></fa-icon>&nbsp;
+    <b>Licence materiálu: </b>
+    <a routerLink="/pricing" fragment="licenses">
+      <ng-container
+        *ngIf="material.license;else license">
+        {{material.license}}
+      </ng-container>
+      <ng-template #license>neuvedeno</ng-template>
+    </a>
+  </div>
+</div>
