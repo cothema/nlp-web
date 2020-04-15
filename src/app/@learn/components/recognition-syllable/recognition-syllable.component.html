@@ -1,0 +1,32 @@
+<div class="text-right">
+  <a class="btn btn-sm btn-outline-dark"
+     href="https://github.com/cothema/nlp20/blob/master/src/%40nlp/lang/cs/phonetics/tokenizers/CsSyllableTokenizer.ts"
+     target="_blank">
+    <fa-icon [icon]="faGithub"></fa-icon>&nbsp; Zdrojový kód
+  </a>
+  &nbsp;
+  <a class="btn btn-sm btn-outline-dark"
+     href="https://github.com/cothema/nlp20/issues"
+     target="_blank">
+    <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp; Nahlásit chybu
+  </a>
+</div>
+
+<div class="text-center p-3">
+  <form ngForm (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      id="recognition-str"
+      name="recognition-str"
+      placeholder="Zadejte slovo"
+      class="form-control"
+      [(ngModel)]="formModel.string"
+      style="max-width: 650px;margin:0 auto;font-size:1.6em;">
+  </form>
+
+  <app-spinner *ngIf="submitted && !solution"></app-spinner>
+
+  <app-syllable *ngIf="solution"
+                [syllables]="solution.syllables"
+                [syllablesOrig]="solution.syllablesOrig"></app-syllable>
+</div>

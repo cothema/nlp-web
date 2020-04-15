@@ -9,7 +9,7 @@
     <fa-icon [icon]="faBook"></fa-icon>&nbsp; Učivo
   </h3>
 
-  <ul ngbNav class="nav-tabs d-print-none" style="margin-top: 2em">
+  <ul ngbNav [(activeId)]="activeTab" class="nav-tabs d-print-none" style="margin-top: 2em">
     <li [ngbNavItem]="'theory'">
       <a ngbNavLink>Teorie</a>
     </li>
@@ -25,6 +25,10 @@
   </ul>
 </div>
 
-<app-learn-material-links [material]="learnMaterial"></app-learn-material-links>
+<div [ngSwitch]="activeTab" class="p-3">
+  <app-learn-material-links *ngSwitchCase="'theory'" [material]="learnMaterial"></app-learn-material-links>
+  <app-train-syllables *ngSwitchCase="'exercise'"></app-train-syllables>
+  <app-recognition-syllable *ngSwitchCase="'recognition'"></app-recognition-syllable>
+</div>
 
 <app-learn-material-footer [material]="learnMaterial"></app-learn-material-footer>

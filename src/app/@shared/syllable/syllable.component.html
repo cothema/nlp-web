@@ -1,0 +1,27 @@
+<div *ngIf="syllables" class="p-5">
+  <div class="font-weight-bold" style="font-size: 3em;">
+      <span placement="top" ngbTooltip="Výslovnost">
+      [
+      <ng-container *ngFor="let syllable of syllables; index as i">
+      <span [style.color]="colors[i % colors.length]">
+        {{syllable.fragment.string}}
+      </span>
+        <ng-container *ngIf="syllables[i+1]">·</ng-container>
+      </ng-container>
+      ]
+      </span>
+  </div>
+  <div style="font-size: 3em;" *ngIf="syllablesOrig">
+      <span placement="top" ngbTooltip="Zápis">
+      <ng-container *ngFor="let syllable of syllablesOrig; index as i">
+      <span>
+        {{syllable.fragment.string}}
+      </span>
+        <ng-container *ngIf="syllables[i+1]">·</ng-container>
+      </ng-container>
+      </span>
+  </div>
+  <div style="font-size: 2em;">
+    Počet slabik: {{syllables.length}}
+  </div>
+</div>

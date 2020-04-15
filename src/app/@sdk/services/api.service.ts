@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { IApiResponse } from '../interfaces/i-api-response';
 
 @Injectable({
   providedIn: 'root',
@@ -15,19 +16,17 @@ export class ApiService {
     this.baseUrl = environment.apiUrl;
   }
 
-  async analyzeText(text: string): Promise<any> {
-    return this.http.post(
-      this.baseUrl + '/analyze',
-      {
-        text
-      }).toPromise();
+  async post<T>(
+    subPath: string,
+    lang: string,
+    request: any
+  ): Promise<IApiResponse<T>> {
+    return this.http
+      .post<IApiResponse<T>>(
+        this.baseUrl + '/v1/' + lang + subPath,
+        request
+      )
+      .toPromise<IApiResponse<T>>();
   }
 
-  async analyzeWord(word: string): Promise<any> {
-    return this.http.post(
-      this.baseUrl + '/analyze/word',
-      {
-        word
-      }).toPromise();
-  }
 }

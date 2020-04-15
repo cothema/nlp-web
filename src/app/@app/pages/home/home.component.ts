@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
 import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage';
-import { ApiService } from '../../../@shared/services/api.service';
+import { ApiService } from '../../../@sdk/services/api.service';
 
 @Component({
   selector: 'app-home',

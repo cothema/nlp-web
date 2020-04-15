@@ -3,11 +3,11 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalL
 import { LearnMaterial } from '../../model/learn-material';
 
 @Component({
-  selector: 'app-learn-material-learn-links',
-  templateUrl: './learn-material-learn-links.component.html',
-  styleUrls: ['./learn-material-learn-links.component.scss']
+  selector: 'app-learn-material-links',
+  templateUrl: './learn-material-links.component.html',
+  styleUrls: ['./learn-material-links.component.scss']
 })
-export class LearnMaterialLearnLinksComponent implements OnInit {
+export class LearnMaterialLinksComponent implements OnInit {
 
   @Input() material: LearnMaterial;
   faExternalLinkAlt = faExternalLinkAlt;

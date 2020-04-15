@@ -1,0 +1,49 @@
+<div class="text-center p-3">
+  <div *ngIf="actualWord" style="font-size: 2em;font-weight: bold">
+    Kolik slabik má slovo "{{actualWord.string}}"?
+  </div>
+
+  <form ngForm (ngSubmit)="onSubmitAnswer()">
+    <div style="margin: 0 auto;max-width: 300px" class="input-group">
+      <input
+        [disabled]="actualWord.answerSyllables"
+        type="number"
+        id="answer"
+        name="answer"
+        #answerElement
+        class="form-control form-control-lg text-center"
+        [(ngModel)]="answer"
+        min="1"
+        max="10"
+        aria-describedby="button-addon">
+
+      <div class="input-group-append" id="button-addon">
+        <button type="submit" *ngIf="!actualWord.answerSyllables"
+                [disabled]="!answer"
+                class="btn btn-success btn-lg">
+          Odpovědět
+        </button>
+        <button type="button" (click)="onNextQuestion()" *ngIf="actualWord.answerSyllables"
+                class="btn btn-primary btn-lg">
+          Další otázka
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <app-spinner *ngIf="submitted && !actualWord.answerSyllables"></app-spinner>
+
+  <div class="pt-5">
+    <div *ngIf="isAnswerCorrect" class="alert alert-success p-4" style="max-width: 10em;margin: 0 auto;">
+      Bravo! Správná odpověď!
+    </div>
+
+    <div *ngIf="isAnswerCorrect === false" class="alert alert-danger p-4" style="max-width: 10em;margin: 0 auto;">
+      Bohužel! Špatná odpověď!
+    </div>
+  </div>
+
+  <app-syllable *ngIf="actualWord.answerSyllables"
+                [syllables]="actualWord.answerSyllables"
+                [syllablesOrig]="actualWord.answerSyllablesOrig"></app-syllable>
+</div>

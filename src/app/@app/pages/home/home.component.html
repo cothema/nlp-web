@@ -1,8 +1,7 @@
-
 <form (ngSubmit)="onSubmit()" #analysisForm="ngForm">
   <div class="form-group">
     <textarea rows="5" class="form-control" id="text"
-              placeholder="{{'analysis.text'|translate}}"
+              [placeholder]="'analysis.text'|translate"
               required
               [(ngModel)]="formModel.text" name="text"
               style="margin-top: 1em;font-size:1.2em"
@@ -38,7 +37,8 @@
 
     &nbsp;
 
-    <input type="checkbox" id="showPropositionalLogic" [(ngModel)]="showPropositionalLogic" [ngModelOptions]="{standalone: true}">
+    <input type="checkbox" id="showPropositionalLogic" [(ngModel)]="showPropositionalLogic"
+           [ngModelOptions]="{standalone: true}">
     <label for="showPropositionalLogic">
       &nbsp;Výroková logika
       <a routerLink="/pricing" class="badge badge-success">
@@ -61,10 +61,7 @@
   </div>
 </form>
 
-<div class="text-center p-5 text-warning" *ngIf="analysisForm.submitted && !apiResponse" style="font-size: 1.7em">
-  <div class="spinner-border text-warning" role="status"></div>&nbsp;
-  Probíhá analýza...
-</div>
+<app-spinner *ngIf="analysisForm.submitted && !apiResponse"></app-spinner>
 
 <div *ngIf="apiResponse" class="card" style="margin-top: 1em;">
   <div class="card-body">
