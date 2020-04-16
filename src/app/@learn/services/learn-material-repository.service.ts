@@ -17,7 +17,13 @@ export class LearnMaterialRepositoryService {
         description: 'Díky rozeznání slabik se naučíme správně vyslovovat jednotlivá slova.',
         routerLink: 'syllables',
         license: 'Public domain',
-        authors: ['Miloš Havlíček']
+        authors: ['Miloš Havlíček'],
+        externalLinks: [
+          {
+            url: 'https://www.mojecestina.cz/article/2016051602-cestina-letem-svetem-jak-rozdelit-slovo-na-slabiky',
+            title: 'mojecestina.cz'
+          },
+        ]
       },
       {
         class: 3,

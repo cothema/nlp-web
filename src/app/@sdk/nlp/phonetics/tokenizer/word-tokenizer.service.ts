@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
-import { ISyllable } from '../model/i-syllable';
+import { IWord } from '../model/i-word';
 import { AbstractTokenizerService } from './abstract-tokenizer.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SyllableTokenizerService extends AbstractTokenizerService<ISyllable> {
+export class WordTokenizerService extends AbstractTokenizerService<IWord> {
 
-  protected apiSubpath = '/phonetics/tokenizer/syllable';
+  protected apiSubpath = '/phonetics/tokenizer/word';
 
   constructor(
-    apiService: ApiService,
+    protected apiService: ApiService,
   ) {
     super(apiService);
   }

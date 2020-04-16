@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   async onSubmit() {
     this.submitted = true;
 
-    this.apiResponse = await this.apiService.analyzeText(this.formModel.text);
+    // this.apiResponse = await this.apiService.analyzeText(this.formModel.text);
   }
 
   onClear() {

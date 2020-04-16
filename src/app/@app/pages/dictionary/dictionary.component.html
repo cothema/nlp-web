@@ -1,10 +1,11 @@
-<form (ngSubmit)="onSubmit()" #analysisForm="ngForm">
+<form (ngSubmit)="onSubmit()" #analysisForm="ngForm" class="p-4 text-center">
   <div class="form-group">
     <input type="text" class="form-control" id="text"
            placeholder="Hledané slovo"
            required
            [(ngModel)]="formModel.text" name="text"
-           #text="ngModel">
+           #text="ngModel"
+           style="font-size: 2em;text-align: center">
   </div>
 
   <div *ngIf="formModel.text.length">
@@ -14,16 +15,23 @@
     </select>
   </div>
 
-  <button type="submit" class="btn btn-success" [disabled]="!analysisForm.form.valid">
+  <button type="submit" class="btn btn-lg btn-success" [disabled]="!analysisForm.form.valid">
     Analyzovat
   </button>
 </form>
 
-<div *ngIf="apiResponse" class="card" style="margin-top: 1em;">
-  <div class="card-body">
-    <h5 class="card-title">Analýza slova</h5>
-    <div class="card-text">
-      <b>Výslovnost:</b> [{{apiResponse['pronunciation']}}]
-    </div>
+<div class="text-center">
+
+  <div class="text-right">
+    <a [href]="'https://cs.wiktionary.org/wiki/' + this.formModel.text" class="btn btn-outline-dark">
+      <fa-icon [icon]="faWikipediaW"></fa-icon>
+      Otevřít ve Wikislovníku
+    </a>
   </div>
+
+  <app-spinner *ngIf="isSubmitted && !response?.syllables"></app-spinner>
+
+  <app-syllable *ngIf="response" [syllables]="response?.syllables"
+                [syllablesOrig]="response?.syllablesOrig"></app-syllable>
+
 </div>

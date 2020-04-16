@@ -17,7 +17,7 @@ export class RecognitionSyllableComponent implements OnInit {
   submitted = false;
   apiResponse?: string;
   faExclamationTriangle = faExclamationTriangle;
-  private solution: { syllables: ISyllable[]; syllablesOrig: ISyllable[] };
+  solution: { syllables: ISyllable[]; syllablesOrig: ISyllable[] };
 
   constructor(
     private syllableTokenizerService: SyllableTokenizerService,
