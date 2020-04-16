@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { LearnSyllablesComponent } from './learn-syllables.component';
+import { LearnSyllablesComponent } from "./learn-syllables.component";
 
-describe('LearnSyllablesComponent', () => {
+describe("LearnSyllablesComponent", () => {
   let component: LearnSyllablesComponent;
   let fixture: ComponentFixture<LearnSyllablesComponent>;
 
@@ -19,7 +19,7 @@ describe('LearnSyllablesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,26 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { faWikipediaW } from '@fortawesome/free-brands-svg-icons/faWikipediaW';
-import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage';
-import { ISyllable } from '../../../@sdk/nlp/phonetics/model/i-syllable';
-import { SyllableTokenizerService } from '../../../@sdk/nlp/phonetics/tokenizer/syllable-tokenizer.service';
-import { ApiService } from '../../../@sdk/services/api.service';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Params, Router } from "@angular/router";
+import { faWikipediaW } from "@fortawesome/free-brands-svg-icons/faWikipediaW";
+import { faLanguage } from "@fortawesome/free-solid-svg-icons/faLanguage";
+import { ISyllable } from "../../../@sdk/nlp/phonetics/model/i-syllable";
+import { IToken } from "../../../@sdk/nlp/phonetics/model/i-token";
+import { SyllableTokenizerService } from "../../../@sdk/nlp/phonetics/tokenizer/syllable-tokenizer.service";
+import { ApiService } from "../../../@sdk/services/api.service";
 
 @Component({
-  selector: 'app-dictionary',
-  templateUrl: './dictionary.component.html',
-  styleUrls: ['./dictionary.component.scss']
+  selector: "app-dictionary",
+  templateUrl: "./dictionary.component.html",
+  styleUrls: ["./dictionary.component.scss"]
 })
 export class DictionaryComponent implements OnInit {
   faLanguage = faLanguage;
   formModel = {
-    text: '',
+    text: "",
   };
   isSubmitted = false;
   response: {
     originalString?: string,
-    syllables?: ISyllable[],
-    syllablesOrig?: ISyllable[]
+    syllables?: IToken<ISyllable>[],
+    syllablesOrig?: IToken<ISyllable>[]
   } = {};
   faWikipediaW = faWikipediaW;
 
@@ -47,7 +48,7 @@ export class DictionaryComponent implements OnInit {
     if (this.response.originalString !== this.formModel.text) {
       this.isSubmitted = true;
       this.response = {};
-      await this.router.navigate(['/dictionary', this.formModel.text]);
+      await this.router.navigate(["/dictionary", this.formModel.text]);
     }
   }
 

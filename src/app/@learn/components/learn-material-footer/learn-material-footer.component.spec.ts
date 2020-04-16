@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { LearnMaterialFooterComponent } from './learn-material-footer.component';
+import { LearnMaterialFooterComponent } from "./learn-material-footer.component";
 
-describe('LearnMaterialFooterComponent', () => {
+describe("LearnMaterialFooterComponent", () => {
   let component: LearnMaterialFooterComponent;
   let fixture: ComponentFixture<LearnMaterialFooterComponent>;
 
@@ -19,7 +19,7 @@ describe('LearnMaterialFooterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

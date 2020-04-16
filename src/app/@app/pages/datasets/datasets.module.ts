@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { SharedModule } from '../../../@shared/shared.module';
-import { DatasetsComponent } from './datasets.component';
+import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
+import { SharedModule } from "../../../@shared/shared.module";
+import { DatasetsComponent } from "./datasets.component";
 
 @NgModule({
   declarations: [DatasetsComponent],
@@ -9,7 +9,7 @@ import { DatasetsComponent } from './datasets.component';
     SharedModule,
     RouterModule.forChild([
       {
-        path: '',
+        path: "",
         component: DatasetsComponent,
       },
     ]),

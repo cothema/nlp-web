@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { loggedIn } from '@angular/fire/auth-guard';
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map, take, tap } from 'rxjs/operators';
-import { AuthService } from '../../@shared/services/auth.service';
+import { Injectable } from "@angular/core";
+import { loggedIn } from "@angular/fire/auth-guard";
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot } from "@angular/router";
+import { Observable } from "rxjs";
+import { map, take, tap } from "rxjs/operators";
+import { AuthService } from "../../@shared/services/auth.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class NotAuthGuard implements CanActivate, CanActivateChild {
   constructor(
@@ -24,8 +24,8 @@ export class NotAuthGuard implements CanActivate, CanActivateChild {
       map(user => !user),
       tap(notLoggedIn => {
         if (!notLoggedIn) {
-          console.warn('Access denied!');
-          this.router.navigate(['/dashboard']);
+          console.warn("Access denied!");
+          this.router.navigate(["/dashboard"]);
         }
       })
     );

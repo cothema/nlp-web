@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
-import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage';
-import { ApiService } from '../../../@sdk/services/api.service';
+import { Component, OnInit } from "@angular/core";
+import { faDollarSign } from "@fortawesome/free-solid-svg-icons/faDollarSign";
+import { faLanguage } from "@fortawesome/free-solid-svg-icons/faLanguage";
+import { ApiService } from "../../../@sdk/services/api.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
   faLanguage = faLanguage;
   formModel = {
-    text: '',
+    text: "",
   };
   submitted = false;
   apiResponse: any;
-  exampleInput = 'Mladý Honza je už 2 dny doma. Kdo to tu leží na posteli? Martin. Jsi to ty nebo on? Kobylka byla asi v Kobylisech.';
+  exampleInput = "Mladý Honza je už 2 dny doma. Kdo to tu leží na posteli? Martin. Jsi to ty nebo on? Kobylka byla asi v Kobylisech.";
   devMode = false;
   showStats = true;
   showVerbalTypes = true;
@@ -45,6 +45,6 @@ export class HomeComponent implements OnInit {
   onClear() {
     this.submitted = false;
     this.apiResponse = undefined;
-    this.formModel.text = '';
+    this.formModel.text = "";
   }
 }

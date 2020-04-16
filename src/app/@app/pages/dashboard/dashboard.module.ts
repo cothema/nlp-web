@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { SharedModule } from '../../../@shared/shared.module';
-import { DashboardComponent } from './dashboard.component';
-import { StorageComponent } from './storage/storage.component';
-import { StructuresComponent } from './structures/structures.component';
+import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
+import { SharedModule } from "../../../@shared/shared.module";
+import { DashboardComponent } from "./dashboard.component";
+import { StorageComponent } from "./storage/storage.component";
+import { StructuresComponent } from "./structures/structures.component";
 
 @NgModule({
   declarations: [DashboardComponent, StructuresComponent, StorageComponent],
@@ -11,15 +11,15 @@ import { StructuresComponent } from './structures/structures.component';
     SharedModule,
     RouterModule.forChild([
       {
-        path: '',
+        path: "",
         component: DashboardComponent,
       },
       {
-        path: 'storage',
+        path: "storage",
         component: StorageComponent,
       },
       {
-        path: 'structures',
+        path: "structures",
         component: StructuresComponent,
       },
     ]),

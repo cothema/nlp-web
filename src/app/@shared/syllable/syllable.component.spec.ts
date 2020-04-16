@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SyllableComponent } from './syllable.component';
+import { SyllableComponent } from "./syllable.component";
 
-describe('SyllableComponent', () => {
+describe("SyllableComponent", () => {
   let component: SyllableComponent;
   let fixture: ComponentFixture<SyllableComponent>;
 
@@ -19,7 +19,7 @@ describe('SyllableComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

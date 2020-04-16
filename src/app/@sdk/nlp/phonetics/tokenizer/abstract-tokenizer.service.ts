@@ -1,9 +1,9 @@
-import { ApiService } from '../../../services/api.service';
-import { IToken } from '../model/i-token';
+import { ApiService } from "../../../services/api.service";
+import { IToken } from "../model/i-token";
 
 export abstract class AbstractTokenizerService<T> {
 
-  protected abstract apiSubpath = '/phonetics/tokenizer/syllable';
+  protected abstract apiSubpath = "/phonetics/tokenizer/syllable";
 
   protected constructor(
     protected apiService: ApiService,
@@ -12,10 +12,10 @@ export abstract class AbstractTokenizerService<T> {
 
   async tokenize(
     input: string,
-    lang: string = 'cs',
+    lang: string = "cs",
   ): Promise<IToken<T>[]> {
     const res = await this.apiService.post<T[]>(
-      this.apiSubpath + '/tokenize',
+      this.apiSubpath + "/tokenize",
       lang,
       {string: input},
     );
@@ -25,7 +25,7 @@ export abstract class AbstractTokenizerService<T> {
 
   async tokenizeWithOrig(
     word: string,
-    lang: string = 'cs',
+    lang: string = "cs",
   ): Promise<{
     syllables: IToken<T>[],
     syllablesOrig: IToken<T>[]
@@ -47,7 +47,7 @@ export abstract class AbstractTokenizerService<T> {
               string: wordChars.slice(
                 token.origIndex,
                 token.origIndex + token.origLength
-              ).join('')
+              ).join("")
             }
           }) as IToken<T>
       );

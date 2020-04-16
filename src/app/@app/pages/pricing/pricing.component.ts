@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { faBalanceScale } from '@fortawesome/free-solid-svg-icons/faBalanceScale';
-import { faDatabase } from '@fortawesome/free-solid-svg-icons/faDatabase';
+import { Component, OnInit } from "@angular/core";
+import { faBalanceScale } from "@fortawesome/free-solid-svg-icons/faBalanceScale";
+import { faDatabase } from "@fortawesome/free-solid-svg-icons/faDatabase";
 
 @Component({
-  selector: 'app-pricing',
-  templateUrl: './pricing.component.html',
-  styleUrls: ['./pricing.component.scss']
+  selector: "app-pricing",
+  templateUrl: "./pricing.component.html",
+  styleUrls: ["./pricing.component.scss"]
 })
 export class PricingComponent implements OnInit {
   faBalanceScale = faBalanceScale;
   faDatabase = faDatabase;
-  activePricingModel?: 'basic' | 'nonprofit';
+  activePricingModel?: "basic" | "nonprofit";
   pricingPlans = {
     basic: {
       standardPrice: 150,
@@ -41,7 +41,7 @@ export class PricingComponent implements OnInit {
   }
 
   onPricingModelChange() {
-    if (this.activePricingModel === 'nonprofit') {
+    if (this.activePricingModel === "nonprofit") {
       this.discount = 0.5;
       return;
     }

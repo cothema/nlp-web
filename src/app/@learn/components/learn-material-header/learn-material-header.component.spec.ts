@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { LearnMaterialHeaderComponent } from './learn-material-header.component';
+import { LearnMaterialHeaderComponent } from "./learn-material-header.component";
 
-describe('LearnMaterialHeaderComponent', () => {
+describe("LearnMaterialHeaderComponent", () => {
   let component: LearnMaterialHeaderComponent;
   let fixture: ComponentFixture<LearnMaterialHeaderComponent>;
 
@@ -19,7 +19,7 @@ describe('LearnMaterialHeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
