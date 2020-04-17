@@ -10,7 +10,7 @@
   </p>
 </div>
 
-<ul ngbNav [(activeId)]="activePricingModel" (activeIdChange)="onPricingModelChange()" class="nav-tabs">
+<ul (activeIdChange)="onPricingModelChange()" [(activeId)]="activePricingModel" class="nav-tabs" ngbNav>
   <li [ngbNavItem]="'basic'">
     <a ngbNavLink>Základní ceník</a>
   </li>
@@ -54,7 +54,7 @@
         </ul>
       </div>
       <div class="card-footer">
-        <a routerLink="/sign-in" type="button" class="btn btn-lg btn-block btn-primary">
+        <a class="btn btn-lg btn-block btn-primary" routerLink="/sign-in" type="button">
           Zaregistrovat se
         </a>
         <p>
@@ -100,7 +100,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <a href="mailto:havlicek@cothema.com" type="button" class="btn btn-lg btn-block btn-primary">
+        <a class="btn btn-lg btn-block btn-primary" href="mailto:havlicek@cothema.com" type="button">
           Kontaktujte nás
         </a>
         <p>
@@ -145,7 +145,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <a href="mailto:havlicek@cothema.com" type="button" class="btn btn-lg btn-block btn-primary">
+        <a class="btn btn-lg btn-block btn-primary" href="mailto:havlicek@cothema.com" type="button">
           Kontaktujte nás
         </a>
         <p>

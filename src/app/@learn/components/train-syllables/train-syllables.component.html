@@ -3,28 +3,28 @@
     Kolik slabik má slovo "{{actualWord.string}}"?
   </div>
 
-  <form ngForm (ngSubmit)="onSubmitAnswer()">
-    <div style="margin: 0 auto;max-width: 300px" class="input-group">
+  <form (ngSubmit)="onSubmitAnswer()" ngForm>
+    <div class="input-group" style="margin: 0 auto;max-width: 300px">
       <input
-        [disabled]="actualWord.answerSyllables"
-        type="number"
-        id="answer"
-        name="answer"
         #answerElement
-        class="form-control form-control-lg text-center"
         [(ngModel)]="answer"
-        min="1"
+        [disabled]="actualWord.answerSyllables"
+        aria-describedby="button-addon"
+        class="form-control form-control-lg text-center"
+        id="answer"
         max="10"
-        aria-describedby="button-addon">
+        min="1"
+        name="answer"
+        type="number">
 
       <div class="input-group-append" id="button-addon">
-        <button type="submit" *ngIf="!actualWord.answerSyllables"
-                [disabled]="!answer"
-                class="btn btn-success btn-lg">
+        <button *ngIf="!actualWord.answerSyllables" [disabled]="!answer"
+                class="btn btn-success btn-lg"
+                type="submit">
           Odpovědět
         </button>
-        <button type="button" (click)="onNextQuestion()" *ngIf="actualWord.answerSyllables"
-                class="btn btn-primary btn-lg">
+        <button (click)="onNextQuestion()" *ngIf="actualWord.answerSyllables" class="btn btn-primary btn-lg"
+                type="button">
           Další otázka
         </button>
       </div>
@@ -44,6 +44,6 @@
   </div>
 
   <app-syllable *ngIf="actualWord.answerSyllables"
-                [syllables]="actualWord.answerSyllables"
-                [syllablesOrig]="actualWord.answerSyllablesOrig"></app-syllable>
+                [syllablesOrig]="actualWord.answerSyllablesOrig"
+                [syllables]="actualWord.answerSyllables"></app-syllable>
 </div>

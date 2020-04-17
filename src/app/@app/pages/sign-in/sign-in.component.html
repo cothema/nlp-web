@@ -5,7 +5,7 @@
 
   <ng-template #login>
     <div style="max-width: 400px;margin:0 auto;">
-      <button type="button" class="btn btn-primary btn-block" (click)="authService.signInViaGoogle()">
+      <button (click)="authService.signInViaGoogle()" class="btn btn-primary btn-block" type="button">
         <fa-icon [icon]="faGoogle"></fa-icon>&nbsp;
         Přihlásit se přes Google
       </button>
@@ -13,7 +13,7 @@
   </ng-template>
 
   <div *ngIf="(authService.user$ | async); else login" style="max-width: 400px;margin:0 auto;">
-    <button type="button" class="btn btn-primary btn-block" (click)="authService.signOut()">
+    <button (click)="authService.signOut()" class="btn btn-primary btn-block" type="button">
       <fa-icon [icon]="faSignOutAlt"></fa-icon>&nbsp;
       Odhlásit se
     </button>

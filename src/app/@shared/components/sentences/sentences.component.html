@@ -1,0 +1,11 @@
+<div *ngFor="let sentence of sentences">
+  {{sentence.fragment.string}}
+
+  <app-sentence-words [sentence]="sentence"></app-sentence-words>
+
+  <div>
+    Typ věty: {{sentence.fragment.sentenceType}}<br>
+    Počet slov: x<br>
+    Počet znaků: {{sentence.fragment.string.length}}<br>
+  </div>
+</div>

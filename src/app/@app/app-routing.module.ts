@@ -1,70 +1,70 @@
-import { NgModule } from "@angular/core";
-import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "./guards/auth.guard";
-import { NotAuthGuard } from "./guards/not-auth.guard";
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/not-auth.guard';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     loadChildren: () =>
-      import("./pages/home/home.module").then(m => m.HomeModule),
+      import('./pages/home/home.module').then(m => m.HomeModule),
   },
   {
-    path: "links",
+    path: 'links',
     loadChildren: () =>
-      import("./pages/links/links.module").then(m => m.LinksModule),
+      import('./pages/links/links.module').then(m => m.LinksModule),
   },
   {
-    path: "about",
+    path: 'about',
     loadChildren: () =>
-      import("./pages/about/about.module").then(m => m.AboutModule),
+      import('./pages/about/about.module').then(m => m.AboutModule),
   },
   {
-    path: "pricing",
+    path: 'pricing',
     loadChildren: () =>
-      import("./pages/pricing/pricing.module").then(m => m.PricingModule),
+      import('./pages/pricing/pricing.module').then(m => m.PricingModule),
   },
   {
-    path: "dictionary",
+    path: 'dictionary',
     loadChildren: () =>
-      import("./pages/dictionary/dictionary.module").then(m => m.DictionaryModule),
+      import('./pages/dictionary/dictionary.module').then(m => m.DictionaryModule),
   },
   {
-    path: "learn",
+    path: 'learn',
     loadChildren: () =>
-      import("../@learn/learn.module").then(m => m.LearnModule),
+      import('../@learn/learn.module').then(m => m.LearnModule),
   },
   {
-    path: "sign-in",
+    path: 'sign-in',
     loadChildren: () =>
-      import("./pages/sign-in/sign-in.module").then(m => m.SignInModule),
+      import('./pages/sign-in/sign-in.module').then(m => m.SignInModule),
     canActivate: [NotAuthGuard],
     canActivateChild: [NotAuthGuard],
   },
   {
-    path: "datasets",
+    path: 'datasets',
     loadChildren: () =>
-      import("./pages/datasets/datasets.module").then(m => m.DatasetsModule),
+      import('./pages/datasets/datasets.module').then(m => m.DatasetsModule),
   },
   {
-    path: "contacts",
+    path: 'contacts',
     loadChildren: () =>
-      import("./pages/contacts/contacts.module").then(m => m.ContactsModule),
+      import('./pages/contacts/contacts.module').then(m => m.ContactsModule),
   },
   {
-    path: "api",
+    path: 'api',
     loadChildren: () =>
-      import("./pages/api/api.module").then(m => m.ApiModule),
+      import('./pages/api/api.module').then(m => m.ApiModule),
   },
   {
-    path: "terms",
+    path: 'terms',
     loadChildren: () =>
-      import("./pages/terms/terms.module").then(m => m.TermsModule),
+      import('./pages/terms/terms.module').then(m => m.TermsModule),
   },
   {
-    path: "dashboard",
+    path: 'dashboard',
     loadChildren: () =>
-      import("./pages/dashboard/dashboard.module").then(m => m.DashboardModule),
+      import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
   },
@@ -74,8 +74,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     preloadingStrategy: PreloadAllModules,
     useHash: false,
-    anchorScrolling: "enabled",
-    scrollPositionRestoration: "enabled"
+    anchorScrolling: 'enabled',
+    scrollPositionRestoration: 'enabled'
   })],
   exports: [RouterModule]
 })

@@ -1,21 +1,23 @@
-import { Component, OnInit } from "@angular/core";
-import { faDollarSign } from "@fortawesome/free-solid-svg-icons/faDollarSign";
-import { faLanguage } from "@fortawesome/free-solid-svg-icons/faLanguage";
-import { ApiService } from "../../../@sdk/services/api.service";
+import { Component, OnInit } from '@angular/core';
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
+import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage';
+import { ISentence } from '../../../@sdk/nlp/orthography/model/i-sentence';
+import { IToken } from '../../../@sdk/shared/model/i-token';
+import { SentenceTokenizerService } from '../../../@sdk/nlp/orthography/tokenizer/sentence-tokenizer.service';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   faLanguage = faLanguage;
   formModel = {
-    text: "",
+    text: '',
   };
   submitted = false;
-  apiResponse: any;
-  exampleInput = "Mladý Honza je už 2 dny doma. Kdo to tu leží na posteli? Martin. Jsi to ty nebo on? Kobylka byla asi v Kobylisech.";
+  solutionSentences: IToken<ISentence>[];
+  exampleInput = 'Mladý Honza je už 2 dny doma. Kdo to tu leží na posteli? Martin. Jsi to ty nebo on? Kobylka byla asi v Kobylisech.';
   devMode = false;
   showStats = true;
   showVerbalTypes = true;
@@ -23,8 +25,9 @@ export class HomeComponent implements OnInit {
   faDollarSign = faDollarSign;
 
   constructor(
-    private apiService: ApiService
+    private sentenceTokenizerService: SentenceTokenizerService,
   ) {
+
   }
 
   ngOnInit(): void {
@@ -37,14 +40,18 @@ export class HomeComponent implements OnInit {
   }
 
   async onSubmit() {
-    this.submitted = true;
-
-    // this.apiResponse = await this.apiService.analyzeText(this.formModel.text);
+    try {
+      this.submitted = true;
+      this.solutionSentences = await this.sentenceTokenizerService.tokenize(this.formModel.text);
+    } catch (e) {
+    } finally {
+      this.submitted = false;
+    }
   }
 
   onClear() {
     this.submitted = false;
-    this.apiResponse = undefined;
-    this.formModel.text = "";
+    this.solutionSentences = undefined;
+    this.formModel.text = '';
   }
 }

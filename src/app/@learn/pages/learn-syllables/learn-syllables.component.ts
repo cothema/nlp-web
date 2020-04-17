@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { faBook } from "@fortawesome/free-solid-svg-icons/faBook";
-import { LearnMaterial } from "../../model/learn-material";
-import { LearnMaterialRepositoryService } from "../../services/learn-material-repository.service";
+import { Component, OnInit } from '@angular/core';
+import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
+import { LearnMaterial } from '../../model/learn-material';
+import { LearnMaterialRepositoryService } from '../../services/learn-material-repository.service';
 
 @Component({
-  selector: "app-learn-syllables",
-  templateUrl: "./learn-syllables.component.html",
-  styleUrls: ["./learn-syllables.component.scss"]
+  selector: 'app-learn-syllables',
+  templateUrl: './learn-syllables.component.html',
+  styleUrls: ['./learn-syllables.component.scss']
 })
 export class LearnSyllablesComponent implements OnInit {
   faBook = faBook;
@@ -19,7 +19,7 @@ export class LearnSyllablesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.learnMaterial = this.repository.findOneBy({routerLink: "syllables"});
+    this.learnMaterial = this.repository.findOneBy({routerLink: 'syllables'});
   }
 
 }

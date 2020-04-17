@@ -1,28 +1,28 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { ISyllable } from "../../../@sdk/nlp/phonetics/model/i-syllable";
-import { IToken } from "../../../@sdk/nlp/phonetics/model/i-token";
-import { SyllableTokenizerService } from "../../../@sdk/nlp/phonetics/tokenizer/syllable-tokenizer.service";
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ISyllable } from '../../../@sdk/nlp/phonetics/model/i-syllable';
+import { IToken } from '../../../@sdk/shared/model/i-token';
+import { SyllableTokenizerService } from '../../../@sdk/nlp/phonetics/tokenizer/syllable-tokenizer.service';
 
 @Component({
-  selector: "app-train-syllables",
-  templateUrl: "./train-syllables.component.html",
-  styleUrls: ["./train-syllables.component.scss"]
+  selector: 'app-train-syllables',
+  templateUrl: './train-syllables.component.html',
+  styleUrls: ['./train-syllables.component.scss']
 })
 export class TrainSyllablesComponent implements OnInit {
 
-  @ViewChild("answerElement") answerElement: ElementRef;
+  @ViewChild('answerElement') answerElement: ElementRef;
   trainWords = [
-    "chobot",
-    "škola",
-    "abeceda",
-    "princezna",
-    "moře",
-    "výhoda",
-    "liška",
-    "spolužačka",
-    "kráska",
-    "zvířátko",
-    "kamarádka"
+    'chobot',
+    'škola',
+    'abeceda',
+    'princezna',
+    'moře',
+    'výhoda',
+    'liška',
+    'spolužačka',
+    'kráska',
+    'zvířátko',
+    'kamarádka'
   ];
   answer: number;
   isAnswerCorrect: boolean;
@@ -58,12 +58,6 @@ export class TrainSyllablesComponent implements OnInit {
     this.isAnswerCorrect = (this.answer === correctAnswer);
   }
 
-  private async solve() {
-    const solution = await this.syllableTokenizerService.tokenizeWithOrig(this.actualWord.string, "cs");
-    this.actualWord.answerSyllables = solution.syllables;
-    this.actualWord.answerSyllablesOrig = solution.syllablesOrig;
-  }
-
   onNextQuestion() {
     this.submitted = false;
     this.actualWord = {
@@ -74,6 +68,12 @@ export class TrainSyllablesComponent implements OnInit {
     setTimeout(() => {
       this.answerElement.nativeElement.focus();
     }, 0);
+  }
+
+  private async solve() {
+    const solution = await this.syllableTokenizerService.tokenizeWithOrig(this.actualWord.string, 'cs');
+    this.actualWord.answerSyllables = solution.syllables;
+    this.actualWord.answerSyllablesOrig = solution.syllablesOrig;
   }
 
 }

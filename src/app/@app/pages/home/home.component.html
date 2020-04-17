@@ -1,11 +1,11 @@
-<form (ngSubmit)="onSubmit()" #analysisForm="ngForm">
+<form #analysisForm="ngForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <textarea rows="5" class="form-control" id="text"
-              [placeholder]="'analysis.text'|translate"
-              required
-              [(ngModel)]="formModel.text" name="text"
-              style="margin-top: 1em;font-size:1.2em"
-              #text="ngModel"></textarea>
+    <textarea #text="ngModel" [(ngModel)]="formModel.text" [placeholder]="'analysis.text'|translate"
+              class="form-control"
+              id="text"
+              name="text" required
+              rows="5"
+              style="margin-top: 1em;font-size:1.2em"></textarea>
   </div>
 
   <div *ngIf="formModel.text.length">
@@ -15,85 +15,61 @@
     </select>
   </div>
 
-  <div class="form-group form-check text-center" *ngIf="formModel.text.length">
-    <input type="checkbox" id="devMode" [(ngModel)]="devMode" [ngModelOptions]="{standalone: true}">
+  <div *ngIf="formModel.text.length" class="form-group form-check text-center">
+    <input [(ngModel)]="devMode" [ngModelOptions]="{standalone: true}" id="devMode" type="checkbox">
     <label for="devMode">
       &nbsp;Vývojářský režim
     </label>
 
     &nbsp;
 
-    <input type="checkbox" id="showStats" [(ngModel)]="showStats" [ngModelOptions]="{standalone: true}">
+    <input [(ngModel)]="showStats" [ngModelOptions]="{standalone: true}" id="showStats" type="checkbox">
     <label for="showStats">
       &nbsp;Statistiky
     </label>
 
     &nbsp;
 
-    <input type="checkbox" id="showVerbalTypes" [(ngModel)]="showVerbalTypes" [ngModelOptions]="{standalone: true}">
+    <input [(ngModel)]="showVerbalTypes" [ngModelOptions]="{standalone: true}" id="showVerbalTypes" type="checkbox">
     <label for="showVerbalTypes">
       &nbsp;Slovní druhy
     </label>
 
     &nbsp;
 
-    <input type="checkbox" id="showPropositionalLogic" [(ngModel)]="showPropositionalLogic"
-           [ngModelOptions]="{standalone: true}">
+    <input [(ngModel)]="showPropositionalLogic" [ngModelOptions]="{standalone: true}" id="showPropositionalLogic"
+           type="checkbox">
     <label for="showPropositionalLogic">
       &nbsp;Výroková logika
-      <a routerLink="/pricing" class="badge badge-success">
+      <a class="badge badge-success" routerLink="/pricing">
         <fa-icon [icon]="faDollarSign"></fa-icon>&nbsp; Základ</a>
     </label>
   </div>
 
   <div class="text-center">
-    <button type="submit" class="btn btn-success" [disabled]="!analysisForm.form.valid">
+    <button [disabled]="!analysisForm.form.valid" class="btn btn-success" type="submit">
       Analyzovat
     </button>
     &nbsp;
-    <button *ngIf="!formModel.text.length" (click)="onSubmitExample()" class="btn btn-primary">
+    <button (click)="onSubmitExample()" *ngIf="!formModel.text.length" class="btn btn-primary">
       Vyzkoušet na ukázce
     </button>
     &nbsp;
-    <button class="btn btn-danger" (click)="onClear()" *ngIf="formModel.text.length">
+    <button (click)="onClear()" *ngIf="formModel.text.length" class="btn btn-danger">
       Smazat
     </button>
   </div>
 </form>
 
-<app-spinner *ngIf="analysisForm.submitted && !apiResponse"></app-spinner>
+<app-spinner *ngIf="analysisForm.submitted && !solutionSentences"></app-spinner>
 
-<div *ngIf="apiResponse" class="card" style="margin-top: 1em;">
-  <div class="card-body">
-    <h5 class="card-title">Analýza textu</h5>
-    <div class="card-text">
-      <div class="text-center">
-        <div>Analyzovaný text:</div>
-        <h6>{{apiResponse.text}}</h6>
-        <div *ngIf="showStats">
-          Počet slov: {{apiResponse.words.length}}<br/>
-          Počet znaků: {{apiResponse.text.length}}<br/>
-        </div>
-      </div>
-      <div *ngFor="let sentence of apiResponse.sentences">
-        <hr>
-        <div>Jednotlivá věta:</div>
-        <h6>{{sentence.text}}</h6>
-        Typ věty: oznamovací
-        <div *ngIf="showStats">
-          Počet slov: {{sentence.words.length}}<br/>
-          Počet znaků: {{sentence.text.length}}<br/>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<app-sentences *ngIf="solutionSentences" [sentences]="solutionSentences"></app-sentences>
 
-<div *ngIf="apiResponse && devMode" class="card" style="margin-top: 1em;">
+<div *ngIf="solutionSentences && devMode" class="card" style="margin-top: 1em;">
   <div class="card-body">
     <h5 class="card-title">API odpověď</h5>
     <div class="card-text">
-      <ngx-json-viewer [json]="apiResponse" [expanded]="false"></ngx-json-viewer>
+      <ngx-json-viewer [expanded]="false" [json]="solutionSentences"></ngx-json-viewer>
     </div>
   </div>
 </div>

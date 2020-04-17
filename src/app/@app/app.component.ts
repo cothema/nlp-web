@@ -1,21 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
-import { faDollarSign } from "@fortawesome/free-solid-svg-icons/faDollarSign";
-import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
-import { TranslateService } from "@ngx-translate/core";
-import { Gtag } from "angular-gtag";
-import { AuthService } from "../@shared/services/auth.service";
+import { Component, OnInit } from '@angular/core';
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
+import { TranslateService } from '@ngx-translate/core';
+import { Gtag } from 'angular-gtag';
+import { AuthService } from '../@shared/services/auth.service';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   faGithub = faGithub;
   faDollarSign = faDollarSign;
   faUser = faUser;
-  lang = "cs";
+  lang = 'cs';
 
   constructor(
     private translate: TranslateService,
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const langInStorage = localStorage.getItem("app.lang");
+    const langInStorage = localStorage.getItem('app.lang');
 
     if (langInStorage && langInStorage.length) {
       this.lang = langInStorage;
@@ -44,6 +44,6 @@ export class AppComponent implements OnInit {
 
   onChangeLang() {
     this.translate.use(this.lang);
-    localStorage.setItem("app.lang", this.lang);
+    localStorage.setItem('app.lang', this.lang);
   }
 }

@@ -1,7 +1,7 @@
-import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
-import { SharedModule } from "../../../@shared/shared.module";
-import { AboutComponent } from "./about.component";
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../../../@shared/shared.module';
+import { AboutComponent } from './about.component';
 
 @NgModule({
   declarations: [AboutComponent],
@@ -9,7 +9,7 @@ import { AboutComponent } from "./about.component";
     SharedModule,
     RouterModule.forChild([
       {
-        path: "",
+        path: '',
         component: AboutComponent,
       },
     ]),

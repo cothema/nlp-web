@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrainSyllablesComponent } from "./train-syllables.component";
+import { TrainSyllablesComponent } from './train-syllables.component';
 
-describe("TrainSyllablesComponent", () => {
+describe('TrainSyllablesComponent', () => {
   let component: TrainSyllablesComponent;
   let fixture: ComponentFixture<TrainSyllablesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TrainSyllablesComponent ]
+      declarations: [TrainSyllablesComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe("TrainSyllablesComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

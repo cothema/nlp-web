@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { ApiService } from "../../../services/api.service";
-import { ISyllable } from "../model/i-syllable";
-import { AbstractTokenizerService } from "./abstract-tokenizer.service";
+import { Injectable } from '@angular/core';
+import { ApiService } from '../../../shared/services/api.service';
+import { ISyllable } from '../model/i-syllable';
+import { AbstractTokenizerService } from '../../../shared/tokenizer/abstract-tokenizer.service';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class SyllableTokenizerService extends AbstractTokenizerService<ISyllable> {
 
-  protected apiSubpath = "/phonetics/tokenizer/syllable";
+  protected apiSubpath = '/phonetics/tokenizer/syllables';
 
   constructor(
     apiService: ApiService,

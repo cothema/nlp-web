@@ -1,7 +1,7 @@
-import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
-import { SharedModule } from "../../../@shared/shared.module";
-import { DictionaryComponent } from "./dictionary.component";
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../../../@shared/shared.module';
+import { DictionaryComponent } from './dictionary.component';
 
 @NgModule({
   declarations: [DictionaryComponent],
@@ -9,11 +9,11 @@ import { DictionaryComponent } from "./dictionary.component";
     SharedModule,
     RouterModule.forChild([
       {
-        path: "",
+        path: '',
         component: DictionaryComponent,
       },
       {
-        path: ":word",
+        path: ':word',
         component: DictionaryComponent,
       },
     ]),

@@ -1,6 +1,6 @@
 <div *ngIf="syllables" class="p-5">
   <div class="font-weight-bold" style="font-size: 3em;">
-      <span placement="top" ngbTooltip="Výslovnost">
+      <span ngbTooltip="Výslovnost" placement="top">
       [
       <ng-container *ngFor="let syllable of syllables; index as i">
       <span [style.color]="colors[i % colors.length]">
@@ -11,8 +11,8 @@
       ]
       </span>
   </div>
-  <div style="font-size: 3em;" *ngIf="syllablesOrig">
-      <span placement="top" ngbTooltip="Zápis">
+  <div *ngIf="syllablesOrig" style="font-size: 3em;">
+      <span ngbTooltip="Zápis" placement="top">
       <ng-container *ngFor="let syllable of syllablesOrig; index as i">
       <span>
         {{syllable.fragment.string}}

@@ -1,4 +1,4 @@
-import { ExternalLink } from "../../@shared/model/external-link";
+import { ExternalLink } from '../../@shared/model/external-link';
 
 export interface LearnMaterial {
   class: number;

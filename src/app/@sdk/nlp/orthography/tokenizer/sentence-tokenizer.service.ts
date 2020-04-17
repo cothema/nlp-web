@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../../../services/api.service';
+import { ApiService } from '../../../shared/services/api.service';
 import { ISentence } from '../model/i-sentence';
-import { AbstractTokenizerService } from './abstract-tokenizer.service';
+import { AbstractTokenizerService } from '../../../shared/tokenizer/abstract-tokenizer.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SentenceTokenizerService extends AbstractTokenizerService<ISentence> {
 
-  protected apiSubpath = '/phonetics/tokenizer/sentence';
+  protected apiSubpath = '/orthography/tokenizer/sentence';
 
   constructor(
     protected apiService: ApiService,

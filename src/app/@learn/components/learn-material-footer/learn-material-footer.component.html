@@ -12,7 +12,7 @@
     <br/>
     <fa-icon [icon]="faBalanceScale"></fa-icon>&nbsp;
     <b>Licence materiálu: </b>
-    <a routerLink="/pricing" fragment="licenses">
+    <a fragment="licenses" routerLink="/pricing">
       <ng-container
         *ngIf="material.license;else license">
         {{material.license}}

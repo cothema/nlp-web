@@ -13,20 +13,20 @@
 </div>
 
 <div class="text-center p-3">
-  <form ngForm (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" ngForm>
     <input
-      type="text"
+      [(ngModel)]="formModel.string"
+      class="form-control text-center"
       id="recognition-str"
       name="recognition-str"
       placeholder="Zadejte slovo"
-      class="form-control text-center"
-      [(ngModel)]="formModel.string"
-      style="max-width: 650px;margin:0 auto;font-size:1.6em;">
+      style="max-width: 650px;margin:0 auto;font-size:1.6em;"
+      type="text">
   </form>
 
   <app-spinner *ngIf="submitted && !solution"></app-spinner>
 
   <app-syllable *ngIf="solution"
-                [syllables]="solution.syllables"
-                [syllablesOrig]="solution.syllablesOrig"></app-syllable>
+                [syllablesOrig]="solution.syllablesOrig"
+                [syllables]="solution.syllables"></app-syllable>
 </div>

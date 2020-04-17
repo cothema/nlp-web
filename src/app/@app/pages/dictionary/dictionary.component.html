@@ -1,11 +1,11 @@
-<form (ngSubmit)="onSubmit()" #analysisForm="ngForm" class="p-4 text-center">
+<form #analysisForm="ngForm" (ngSubmit)="onSubmit()" class="p-4 text-center">
   <div class="form-group">
-    <input type="text" class="form-control" id="text"
-           placeholder="Hledané slovo"
-           required
-           [(ngModel)]="formModel.text" name="text"
-           #text="ngModel"
-           style="font-size: 2em;text-align: center">
+    <input #text="ngModel" [(ngModel)]="formModel.text" class="form-control"
+           id="text"
+           name="text"
+           placeholder="Hledané slovo" required
+           style="font-size: 2em;text-align: center"
+           type="text">
   </div>
 
   <div *ngIf="formModel.text.length">
@@ -15,23 +15,31 @@
     </select>
   </div>
 
-  <button type="submit" class="btn btn-lg btn-success" [disabled]="!analysisForm.form.valid">
+  <button [disabled]="!analysisForm.form.valid" class="btn btn-lg btn-success" type="submit">
     Analyzovat
   </button>
 </form>
 
 <div class="text-center">
 
+  <app-spinner *ngIf="isSubmitted && !response?.syllables"></app-spinner>
+
   <div class="text-right">
-    <a [href]="'https://cs.wiktionary.org/wiki/' + this.formModel.text" class="btn btn-outline-dark">
+    <a [href]="'https://www.nechybujte.cz/slovnik-soucasne-cestiny/' + this.formModel.text"
+       class="btn btn-outline-dark"
+       target="_blank">
+      Otevřít v nechybujte.cz
+    </a>
+    &nbsp;
+    <a [href]="'https://cs.wiktionary.org/wiki/' + this.formModel.text"
+       class="btn btn-outline-dark"
+       target="_blank">
       <fa-icon [icon]="faWikipediaW"></fa-icon>
       Otevřít ve Wikislovníku
     </a>
   </div>
 
-  <app-spinner *ngIf="isSubmitted && !response?.syllables"></app-spinner>
-
-  <app-syllable *ngIf="response" [syllables]="response?.syllables"
-                [syllablesOrig]="response?.syllablesOrig"></app-syllable>
+  <app-syllable *ngIf="response" [syllablesOrig]="response?.syllablesOrig"
+                [syllables]="response?.syllables"></app-syllable>
 
 </div>

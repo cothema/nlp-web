@@ -1,4 +1,4 @@
 export interface ISyllable {
-  type?: "syllable";
+  type: 'syllables';
   string?: string;
 }

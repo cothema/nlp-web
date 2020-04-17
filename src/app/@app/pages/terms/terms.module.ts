@@ -1,7 +1,7 @@
-import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
-import { SharedModule } from "../../../@shared/shared.module";
-import { TermsComponent } from "./terms.component";
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../../../@shared/shared.module';
+import { TermsComponent } from './terms.component';
 
 @NgModule({
   declarations: [TermsComponent],
@@ -9,7 +9,7 @@ import { TermsComponent } from "./terms.component";
     SharedModule,
     RouterModule.forChild([
       {
-        path: "",
+        path: '',
         component: TermsComponent,
       },
     ]),
