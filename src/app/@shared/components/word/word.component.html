@@ -1,0 +1,23 @@
+<div class="text-center p-3" style="font-size: 2em;">
+  <span *ngIf="word.verbalType.length; else notInDictionary" class="text-success">
+  <fa-icon [icon]="faCheck"></fa-icon>&nbsp; Nalezeno ve slovníku
+  </span>
+  <ng-template #notInDictionary>
+    <span class="text-danger">
+      <fa-icon [icon]="faTimesCircle"></fa-icon>&nbsp; Nenalezeno ve slovníku
+    </span>
+  </ng-template>
+</div>
+
+<ng-container *ngFor="let verbalType of word.verbalType">
+  <div *ngIf="verbalType.type; else unknownType" class="font-weight-bold text-center p-3 text-warning"
+       style="font-size: 2em;">
+    Slovní druh: {{verbalType.type}}
+  </div>
+  <ng-template #unknownType>
+    <div class="font-weight-bold text-center p-3 text-danger"
+         style="font-size: 2em;">
+      Slovní druh nezjištěn
+    </div>
+  </ng-template>
+</ng-container>

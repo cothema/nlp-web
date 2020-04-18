@@ -8,7 +8,7 @@ import { AbstractTokenizerService } from '../../../shared/tokenizer/abstract-tok
 })
 export class WordTokenizerService extends AbstractTokenizerService<IWord> {
 
-  protected apiSubpath = '/orthography/tokenizer/word';
+  protected apiSubPath = '/orthography/tokenizer/word';
 
   constructor(
     protected apiService: ApiService,

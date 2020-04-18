@@ -11,6 +11,7 @@ import { LearnMaterialRepositoryService } from '../../services/learn-material-re
 export class LearnVerbalTypesComponent implements OnInit {
   faBook = faBook;
   learnMaterial: LearnMaterial;
+  activeTab: string;
 
   constructor(
     private repository: LearnMaterialRepositoryService

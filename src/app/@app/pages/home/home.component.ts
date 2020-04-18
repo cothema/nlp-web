@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   };
   submitted = false;
   solutionSentences: IToken<ISentence>[];
-  exampleInput = 'Mladý Honza je už 2 dny doma. Kdo to tu leží na posteli? Martin. Jsi to ty nebo on? Kobylka byla asi v Kobylisech.';
+  exampleInput = 'Náš syn Honza si včera koupil červený svetr. Zeptali jsme se ho: "Líbí se ti?" Odpověděl, že líbí.';
   devMode = false;
   showStats = true;
   showVerbalTypes = true;

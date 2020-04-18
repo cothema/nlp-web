@@ -9,7 +9,7 @@
     <fa-icon [icon]="faBook"></fa-icon>&nbsp; Učivo
   </h3>
 
-  <ul class="nav-tabs d-print-none" ngbNav style="margin-top: 2em">
+  <ul [(activeId)]="activeTab" class="nav-tabs d-print-none" ngbNav style="margin-top: 2em">
     <li [ngbNavItem]="'theory'">
       <a ngbNavLink>Teorie</a>
     </li>
@@ -23,8 +23,11 @@
       <a ngbNavLink>Dotazy a diskuze</a>
     </li>
   </ul>
+</div>
 
-  <div class="p-3">
+<div [ngSwitch]="activeTab" class="p-3">
+  <app-recognition-verbal-type *ngSwitchCase="'recognition'"></app-recognition-verbal-type>
+  <div *ngSwitchCase="'theory'">
     <div class="p-3">
       V češtině máme 10 slovních druhů. 5 ohebných, které mění svůj tvar a 5 neohebných.
     </div>

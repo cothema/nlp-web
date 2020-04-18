@@ -1,0 +1,30 @@
+<div class="text-right">
+  <a class="btn btn-sm btn-outline-dark"
+     href="https://github.com/cothema/nlp20/blob/master/src/%40nlp/lang/cs/lexicology/classifiers/CsVerbalTypeClassifier.ts"
+     target="_blank">
+    <fa-icon [icon]="faGithub"></fa-icon>&nbsp; Zdrojový kód
+  </a>
+  &nbsp;
+  <a class="btn btn-sm btn-outline-dark"
+     href="https://github.com/cothema/nlp20/issues"
+     target="_blank">
+    <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp; Nahlásit chybu
+  </a>
+</div>
+
+<div class="text-center p-3">
+  <form (ngSubmit)="onSubmit()" ngForm>
+    <input
+      [(ngModel)]="formModel.string"
+      class="form-control text-center"
+      id="recognition-str"
+      name="recognition-str"
+      placeholder="Zadejte slovo"
+      style="max-width: 650px;margin:0 auto;font-size:1.6em;"
+      type="text">
+  </form>
+
+  <app-spinner *ngIf="submitted && !solution"></app-spinner>
+
+  <app-word *ngIf="solution" [word]="solution"></app-word>
+</div>

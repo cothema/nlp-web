@@ -9,6 +9,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SyllablesComponent } from './components/syllables/syllables.component';
 import { SentencesComponent } from './components/sentences/sentences.component';
 import { SentenceWordsComponent } from './components/sentence-words/sentence-words.component';
+import { WordComponent } from './components/word/word.component';
 
 @NgModule({
   imports: [
@@ -29,10 +30,11 @@ import { SentenceWordsComponent } from './components/sentence-words/sentence-wor
     SyllablesComponent,
     NgbTooltipModule,
     SentencesComponent,
+    WordComponent,
   ],
   entryComponents: [],
   providers: [],
-  declarations: [SpinnerComponent, SyllablesComponent, SentencesComponent, SentenceWordsComponent],
+  declarations: [SpinnerComponent, SyllablesComponent, SentencesComponent, SentenceWordsComponent, WordComponent],
 })
 export class SharedModule {
 }

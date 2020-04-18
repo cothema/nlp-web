@@ -12,12 +12,13 @@ import { TrainSyllablesComponent } from './components/train-syllables/train-syll
 import { LearnComponent } from './learn.component';
 import { LearnSyllablesComponent } from './pages/learn-syllables/learn-syllables.component';
 import { LearnVerbalTypesComponent } from './pages/learn-verbal-types/learn-verbal-types.component';
+import { RecognitionVerbalTypeComponent } from './components/recognition-verbal-type/recognition-verbal-type.component';
 
 @NgModule({
   declarations: [
     LearnComponent, LearnVerbalTypesComponent, LearnSyllablesComponent,
     LearnMaterialToolbarComponent, LearnMaterialHeaderComponent, LearnMaterialFooterComponent,
-    LearnMaterialLearnStepsComponent, LearnMaterialLinksComponent, RecognitionSyllableComponent, TrainSyllablesComponent],
+    LearnMaterialLearnStepsComponent, LearnMaterialLinksComponent, RecognitionSyllableComponent, TrainSyllablesComponent, RecognitionVerbalTypeComponent],
   imports: [
     SharedModule,
     RouterModule.forChild([

@@ -1,9 +1,9 @@
-import { ApiService } from '../services/api.service';
 import { IToken } from '../model/i-token';
+import { ApiService } from '../services/api.service';
 
 export abstract class AbstractTokenizerService<T> {
 
-  protected abstract apiSubpath = '/phonetics/tokenizer/syllables';
+  protected abstract apiSubPath: string;
 
   protected constructor(
     protected apiService: ApiService,
@@ -15,7 +15,7 @@ export abstract class AbstractTokenizerService<T> {
     lang: string = 'cs',
   ): Promise<IToken<T>[]> {
     const res = await this.apiService.post<T[]>(
-      this.apiSubpath + '/tokenize',
+      this.apiSubPath + '/tokenize',
       lang,
       {string: input},
     );

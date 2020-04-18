@@ -8,7 +8,7 @@ import { AbstractTokenizerService } from '../../../shared/tokenizer/abstract-tok
 })
 export class SentenceTokenizerService extends AbstractTokenizerService<ISentence> {
 
-  protected apiSubpath = '/orthography/tokenizer/sentence';
+  protected apiSubPath = '/orthography/tokenizer/sentence';
 
   constructor(
     protected apiService: ApiService,
