@@ -1,0 +1,31 @@
+<div class="p-3 text-center">
+  <h2>Settings</h2>
+</div>
+
+<table class="table table-striped" style="max-width: 600px;margin: 0 auto;">
+  <tbody>
+  <tr>
+    <td>
+      Feature level:
+    </td>
+    <td>
+      <select (change)="onFeatureLevelChanged($event)"
+              [ngModel]="featureLevelService.currentLevel"
+              class="form-control">
+        <option *ngIf="featureLevelService.LEVEL_PROD >= featureLevelService.currentLevel"
+                [value]="featureLevelService.LEVEL_PROD">
+          Production
+        </option>
+        <option *ngIf="featureLevelService.LEVEL_BETA >= featureLevelService.currentLevel"
+                [value]="featureLevelService.LEVEL_BETA">
+          Beta
+        </option>
+        <option *ngIf="featureLevelService.LEVEL_DEV >= featureLevelService.currentLevel"
+                [value]="featureLevelService.LEVEL_DEV">
+          In development
+        </option>
+      </select>
+    </td>
+  </tr>
+  </tbody>
+</table>

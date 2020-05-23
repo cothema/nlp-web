@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
+  staging: false,
   apiUrl: 'http://localhost:3001',
+  mathApiUrl: 'https://math-php.herokuapp.com',
   gtagId: '',
   firebaseConfig: {
     apiKey: 'AIzaSyBngu03A50vQA5laXvcB4J9Ki_OQO8zs3M',
@@ -15,7 +17,8 @@ export const environment = {
     messagingSenderId: '764074145248',
     appId: '1:764074145248:web:f1b65afd44f01776382785',
     measurementId: 'G-KHHNZB0H9X'
-  },
+  }
+
 };
 
 /*

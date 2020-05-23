@@ -1,0 +1,75 @@
+<form #analysisForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <textarea #text="ngModel" [(ngModel)]="formModel.text" [placeholder]="'analysis.text'|translate"
+              class="form-control"
+              id="text"
+              name="text" required
+              rows="5"
+              style="margin-top: 1em;font-size:1.2em"></textarea>
+  </div>
+
+  <div *ngIf="formModel.text.length">
+    <fa-icon [icon]="faLanguage" style="font-size:2em;line-height:1em;position:relative;top:0.1em;"></fa-icon>&nbsp;
+    <select class="form-control" style="display: inline-block;width: auto;margin-bottom: 0.5em;">
+      <option>čeština</option>
+    </select>
+  </div>
+
+  <div *ngIf="formModel.text.length" class="form-group form-check text-center">
+    <input [(ngModel)]="devMode" [ngModelOptions]="{standalone: true}" id="devMode" type="checkbox">
+    <label for="devMode">
+      &nbsp;Vývojářský režim
+    </label>
+
+    &nbsp;
+
+    <input [(ngModel)]="showStats" [ngModelOptions]="{standalone: true}" id="showStats" type="checkbox">
+    <label for="showStats">
+      &nbsp;Statistiky
+    </label>
+
+    &nbsp;
+
+    <input [(ngModel)]="showVerbalTypes" [ngModelOptions]="{standalone: true}" id="showVerbalTypes" type="checkbox">
+    <label for="showVerbalTypes">
+      &nbsp;Slovní druhy
+    </label>
+
+    &nbsp;
+
+    <input [(ngModel)]="showPropositionalLogic" [ngModelOptions]="{standalone: true}" id="showPropositionalLogic"
+           type="checkbox">
+    <label for="showPropositionalLogic">
+      &nbsp;Výroková logika
+      <a class="badge badge-success" routerLink="/pricing">
+        <fa-icon [icon]="faDollarSign"></fa-icon>&nbsp; Základ</a>
+    </label>
+  </div>
+
+  <div class="text-center">
+    <button [disabled]="!analysisForm.form.valid" class="btn btn-success" type="submit">
+      Analyzovat
+    </button>
+    &nbsp;
+    <button (click)="onSubmitExample()" *ngIf="!formModel.text.length" class="btn btn-primary">
+      Vyzkoušet na ukázce
+    </button>
+    &nbsp;
+    <button (click)="onClear()" *ngIf="formModel.text.length" class="btn btn-danger">
+      Smazat
+    </button>
+  </div>
+</form>
+
+<app-spinner *ngIf="analysisForm.submitted && !solutionSentences"></app-spinner>
+
+<app-sentences *ngIf="solutionSentences" [sentences]="solutionSentences"></app-sentences>
+
+<div *ngIf="solutionSentences && devMode" class="card" style="margin-top: 1em;">
+  <div class="card-body">
+    <h5 class="card-title">API odpověď</h5>
+    <div class="card-text">
+      <ngx-json-viewer [expanded]="false" [json]="solutionSentences"></ngx-json-viewer>
+    </div>
+  </div>
+</div>

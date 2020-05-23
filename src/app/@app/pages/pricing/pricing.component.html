@@ -10,7 +10,7 @@
   </p>
 </div>
 
-<ul (activeIdChange)="onPricingModelChange()" [(activeId)]="activePricingModel" class="nav-tabs" ngbNav>
+<ul (activeIdChange)="onPricingModelChange($event)" [(activeId)]="activePricingModel" class="nav-tabs" ngbNav>
   <li [ngbNavItem]="'basic'">
     <a ngbNavLink>Základní ceník</a>
   </li>

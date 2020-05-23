@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  staging: false,
+  staging: true,
   apiUrl: 'https://nlp20.herokuapp.com',
   mathApiUrl: 'https://math-php.herokuapp.com',
   gtagId: 'G-1VLL726PKM',

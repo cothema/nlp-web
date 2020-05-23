@@ -10,24 +10,46 @@ const routes: Routes = [
       import('./pages/home/home.module').then(m => m.HomeModule),
   },
   {
-    path: 'links',
-    loadChildren: () =>
-      import('./pages/links/links.module').then(m => m.LinksModule),
-  },
-  {
     path: 'about',
     loadChildren: () =>
       import('./pages/about/about.module').then(m => m.AboutModule),
   },
   {
-    path: 'pricing',
+    path: 'api',
     loadChildren: () =>
-      import('./pages/pricing/pricing.module').then(m => m.PricingModule),
+      import('./pages/api/api.module').then(m => m.ApiModule),
+  },
+  {
+    path: 'contacts',
+    loadChildren: () =>
+      import('./pages/contacts/contacts.module').then(m => m.ContactsModule),
   },
   {
     path: 'dictionary',
     loadChildren: () =>
       import('./pages/dictionary/dictionary.module').then(m => m.DictionaryModule),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+  },
+  {
+    path: 'datasets',
+    loadChildren: () =>
+      import('./pages/datasets/datasets.module').then(m => m.DatasetsModule),
+  },
+  {
+    path: 'links',
+    loadChildren: () =>
+      import('./pages/links/links.module').then(m => m.LinksModule),
+  },
+  {
+    path: 'pricing',
+    loadChildren: () =>
+      import('./pages/pricing/pricing.module').then(m => m.PricingModule),
   },
   {
     path: 'learn',
@@ -42,19 +64,9 @@ const routes: Routes = [
     canActivateChild: [NotAuthGuard],
   },
   {
-    path: 'datasets',
+    path: 'search/:query',
     loadChildren: () =>
-      import('./pages/datasets/datasets.module').then(m => m.DatasetsModule),
-  },
-  {
-    path: 'contacts',
-    loadChildren: () =>
-      import('./pages/contacts/contacts.module').then(m => m.ContactsModule),
-  },
-  {
-    path: 'api',
-    loadChildren: () =>
-      import('./pages/api/api.module').then(m => m.ApiModule),
+      import('./pages/home/home.module').then(m => m.HomeModule),
   },
   {
     path: 'terms',
@@ -62,11 +74,9 @@ const routes: Routes = [
       import('./pages/terms/terms.module').then(m => m.TermsModule),
   },
   {
-    path: 'dashboard',
+    path: 'text-analysis',
     loadChildren: () =>
-      import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
+      import('./pages/text-analysis/text-analysis.module').then(m => m.TextAnalysisModule),
   },
 ];
 

@@ -5,6 +5,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { TranslateService } from '@ngx-translate/core';
 import { Gtag } from 'angular-gtag';
 import { AuthService } from '../@shared/services/auth.service';
+import { FeatureLevelService } from '../@shared/services/feature-level.service';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
     private translate: TranslateService,
     gtag: Gtag, // Do not remove! Pageviews does not work without it.
     public authService: AuthService,
+    public featureLevelService: FeatureLevelService
   ) {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang(this.lang);

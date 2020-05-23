@@ -2,14 +2,24 @@
   <h2 class="display-4">Uživatelská sekce</h2>
 </div>
 
-<a class="btn btn-primary" routerLink="storage">
+<a
+  *ngIf="featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV"
+  class="btn btn-primary" routerLink="storage">
   <fa-icon [icon]="faDatabase"></fa-icon>&nbsp; Uložiště dat
 </a>
 
 &nbsp;
 
-<a class="btn btn-primary" routerLink="structures">
+<a
+  *ngIf="featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV"
+  class="btn btn-primary" routerLink="structures">
   <fa-icon [icon]="faWrench"></fa-icon>&nbsp; Datové struktury
+</a>
+
+&nbsp;
+
+<a class="btn btn-dark" routerLink="settings">
+  <fa-icon [icon]="faWrench"></fa-icon>&nbsp; Settings
 </a>
 
 &nbsp;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faDatabase } from '@fortawesome/free-solid-svg-icons/faDatabase';
 import { faWrench } from '@fortawesome/free-solid-svg-icons/faWrench';
 import { AuthService } from '../../../@shared/services/auth.service';
+import { FeatureLevelService } from '../../../@shared/services/feature-level.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +14,7 @@ export class DashboardComponent implements OnInit {
   faWrench = faWrench;
 
   constructor(
+    public featureLevelService: FeatureLevelService,
     private authService: AuthService,
   ) {
   }

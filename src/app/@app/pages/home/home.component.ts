@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
-import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage';
-import { ISentence } from '../../../@sdk/nlp/orthography/model/i-sentence';
-import { IToken } from '../../../@sdk/shared/model/i-token';
-import { SentenceTokenizerService } from '../../../@sdk/nlp/orthography/tokenizer/sentence-tokenizer.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ApiMathService } from '../../../@shared/services/api-math.service';
 
 @Component({
   selector: 'app-home',
@@ -11,47 +8,47 @@ import { SentenceTokenizerService } from '../../../@sdk/nlp/orthography/tokenize
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  faLanguage = faLanguage;
+
   formModel = {
     text: '',
   };
-  submitted = false;
-  solutionSentences: IToken<ISentence>[];
-  exampleInput = 'Náš syn Honza si včera koupil červený svetr. Zeptali jsme se ho: "Líbí se ti?" Odpověděl, že líbí.';
-  devMode = false;
-  showStats = true;
-  showVerbalTypes = true;
-  showPropositionalLogic = false;
-  faDollarSign = faDollarSign;
+  isSubmitted = false;
+  response: {
+    originalRequest?: string,
+    output?: string
+  } = {};
 
   constructor(
-    private sentenceTokenizerService: SentenceTokenizerService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private apiMathService: ApiMathService,
   ) {
-
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      if (params.query) {
+        this.isSubmitted = true;
+        this.response = {};
+        this.formModel.text = params.query;
+        this.solveRequest(params.query);
+      }
+    });
   }
 
-  async onSubmitExample() {
-    this.formModel.text = this.exampleInput;
-
-    return this.onSubmit();
-  }
-
-  async onSubmit() {
-    try {
-      this.submitted = true;
-      this.solutionSentences = await this.sentenceTokenizerService.tokenize(this.formModel.text);
-    } catch (e) {
-    } finally {
-      this.submitted = false;
+  async onSubmit(): Promise<void> {
+    if (this.response.originalRequest !== this.formModel.text) {
+      this.isSubmitted = true;
+      this.response = {};
+      await this.router.navigate(['/search', this.formModel.text]);
     }
   }
 
-  onClear() {
-    this.submitted = false;
-    this.solutionSentences = undefined;
-    this.formModel.text = '';
+
+  async solveRequest(query: string) {
+    this.response.originalRequest = this.formModel.text;
+
+    this.response.output = await this.apiMathService.search(query);
   }
+
 }

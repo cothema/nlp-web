@@ -37,14 +37,14 @@ export class PricingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.onPricingModelChange();
   }
 
-  onPricingModelChange() {
+  onPricingModelChange(event) {
+    this.activePricingModel = event;
     if (this.activePricingModel === 'nonprofit') {
       this.discount = 0.5;
-      return;
+    } else {
+      this.discount = 1;
     }
-    this.discount = 1;
   }
 }
