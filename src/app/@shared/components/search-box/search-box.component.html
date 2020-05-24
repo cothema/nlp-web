@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-header">
+    <span [innerHTML]="box['icon']"></span>
+    {{box['title']}}
+  </div>
+  <div class="card-body">
+    <ng-container [ngSwitch]="box['type']">
+      <div *ngSwitchCase="'type_html'" [innerHTML]="box['text']" [mathjax]></div>
+      <div *ngSwitchCase="'type_latex'" [mathjax]>
+        \( {{box['text']}} \)
+      </div>
+      <div *ngSwitchDefault>
+        {{box['text']}}
+      </div>
+    </ng-container>
+  </div>
+  <div *ngIf="debug" class="card-footer">
+    <ngx-json-viewer [expanded]="false" [json]="box"></ngx-json-viewer>
+  </div>
+</div>

@@ -1,7 +1,7 @@
-<div class="pt-5 pb-5">
+<div class="pt-5 pb-2">
   <form #analysisForm="ngForm" (ngSubmit)="onSubmit()" class="p-4 text-center">
     <div class="form-group">
-      <input #text="ngModel" [(ngModel)]="formModel.text" class="form-control"
+      <input #searchField #text="ngModel" [(ngModel)]="formModel.text" class="form-control"
              id="text"
              name="text"
              placeholder="Zadejte dotaz..." required
@@ -12,34 +12,24 @@
     <button [disabled]="!analysisForm.form.valid" class="btn btn-lg btn-outline-primary" type="submit">
       Vyhledat
     </button>
+
+    <div *ngIf="formModel.text.length" class="form-group form-check text-center pt-3">
+      <input [(ngModel)]="devMode" [ngModelOptions]="{standalone: true}" id="devMode" type="checkbox">
+      <label for="devMode">
+        &nbsp;Vývojářský režim
+      </label>
+    </div>
   </form>
 </div>
 
 <div *ngIf="response.output">
-  <h2>Interpretace</h2>
   <div *ngFor="let box of response.output['interpretation']['boxes']" class="p-3">
-    <div class="card">
-      <div class="card-header">
-        <span [innerHTML]="box['icon']"></span>
-        {{box['title']}}
-      </div>
-      <div class="card-body">
-        {{box['text']}}
-      </div>
-    </div>
+    <app-search-box [box]="box" [debug]="devMode"></app-search-box>
   </div>
 
   <h2 class="pt-3">Řešení</h2>
   <div *ngFor="let box of response.output['response']['boxes']" class="p-3">
-    <div class="card">
-      <div class="card-header">
-        <span [innerHTML]="box['icon']"></span>
-        {{box['title']}}
-      </div>
-      <div class="card-body">
-        {{box['text']}}
-      </div>
-    </div>
+    <app-search-box [box]="box" [debug]="devMode"></app-search-box>
   </div>
 
   <div class="text-center p-3 font-weight-bold">

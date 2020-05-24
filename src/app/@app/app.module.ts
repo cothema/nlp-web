@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GtagModule } from 'angular-gtag';
+import { MathJaxModule } from 'ngx-mathjax';
 import { environment } from '../../environments/environment';
 import { SharedModule } from '../@shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +41,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     SharedModule,
+    MathJaxModule.forRoot({
+      version: '2.7.5',
+      config: 'TeX-AMS_HTML',
+      hostname: 'cdnjs.cloudflare.com'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

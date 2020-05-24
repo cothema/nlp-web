@@ -34,14 +34,15 @@
     "angular-gtag": "^1.0.4",
     "bootstrap": "^4.4.1",
     "d3": "^5.15.1",
-    "firebase": "^7.13.2",
+    "firebase": "^7.14.5",
     "ngx-json-viewer": "^2.4.0",
+    "ngx-mathjax": "0.0.11",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.1",
+    "@angular-devkit/build-angular": "^0.901.7",
     "@angular/cli": "~9.0.1",
     "@angular/compiler-cli": "~9.0.0",
     "@angular/language-service": "~9.0.0",
