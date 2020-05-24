@@ -24,12 +24,24 @@
 
 <div *ngIf="response.output">
   <div *ngFor="let box of response.output['interpretation']['boxes']" class="p-3">
-    <app-search-box [box]="box" [debug]="devMode"></app-search-box>
+    <app-search-box (search)="onSearch($event)" [box]="box" [debug]="devMode"></app-search-box>
   </div>
 
-  <h2 class="pt-3">Řešení</h2>
+  <div class="row pt-3">
+    <div class="col-md-10">
+      <h2>Řešení</h2>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-sm btn-outline-dark"
+         href="https://github.com/mathematicator-core/search/issues"
+         target="_blank">
+        <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp; Nahlásit chybu
+      </a>
+    </div>
+  </div>
+
   <div *ngFor="let box of response.output['response']['boxes']" class="p-3">
-    <app-search-box [box]="box" [debug]="devMode"></app-search-box>
+    <app-search-box (search)="onSearch($event)" [box]="box" [debug]="devMode"></app-search-box>
   </div>
 
   <div class="text-center p-3 font-weight-bold">

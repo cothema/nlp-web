@@ -1,10 +1,10 @@
 <div class="card">
-  <div class="card-header">
+  <div class="card-header text-center">
     <span [innerHTML]="box['icon']"></span>
     {{box['title']}}
   </div>
-  <div class="card-body">
-    <ng-container [ngSwitch]="box['type']">
+  <div class="card-body text-center">
+    <div [ngSwitch]="box['type']" style="font-size:1.8em">
       <div *ngSwitchCase="'type_html'" [innerHTML]="box['text']" [mathjax]></div>
       <div *ngSwitchCase="'type_latex'" [mathjax]>
         \( {{box['text']}} \)
@@ -12,7 +12,17 @@
       <div *ngSwitchDefault>
         {{box['text']}}
       </div>
-    </ng-container>
+
+      <div *ngIf="box['steps'].length" class="pt-2">
+        <button (click)="onShowSteps()" class="btn btn-outline-dark btn-sm">
+          <fa-icon [icon]="faStream"></fa-icon>&nbsp; Zobrazit postup řešení
+        </button>
+        &nbsp;
+        <button (click)="onContinueByResult()" class="btn btn-outline-dark btn-sm">
+          <fa-icon [icon]="faCaretRight"></fa-icon>&nbsp; Pokračovat výpočtem
+        </button>
+      </div>
+    </div>
   </div>
   <div *ngIf="debug" class="card-footer">
     <ngx-json-viewer [expanded]="false" [json]="box"></ngx-json-viewer>

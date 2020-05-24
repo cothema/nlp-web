@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
 import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/operators';
 import { ApiMathService } from '../../../@shared/services/api-math.service';
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   } = {};
   @ViewChild('searchField') searchField: ElementRef;
   devMode = false;
+  faExclamationTriangle = faExclamationTriangle;
 
   constructor(
     private router: Router,
@@ -32,15 +34,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       if (params.query) {
-        this.isSubmitted = true;
-        this.response = {};
-        this.formModel.text = params.query;
         this.solveRequest(params.query);
       }
     });
   }
 
   ngAfterViewInit() {
+    this.searchField.nativeElement.focus();
+
     // Server side search
     fromEvent(this.searchField.nativeElement, 'keyup')
       .pipe(
@@ -55,19 +56,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   async onSubmit(): Promise<void> {
-    this.isSubmitted = true;
-    this.response = {};
-    if (this.response.originalRequest !== this.formModel.text) {
-      await this.router.navigate(['/search', this.formModel.text]);
-    } else {
-      this.solveRequest(this.formModel.text);
-    }
+    this.solveRequest(this.formModel.text);
   }
 
   async solveRequest(query: string) {
+    this.isSubmitted = true;
+    this.response = {};
+    this.formModel.text = query;
+
+    this.router.navigate(['/search', query], {
+      queryParamsHandling: 'merge',
+      replaceUrl: true,
+    });
+
     this.response = {};
     this.response.originalRequest = this.formModel.text;
     this.response.output = await this.apiMathService.search(query);
   }
 
+  onSearch(query: string): void {
+    this.searchField.nativeElement.focus();
+    this.solveRequest(query);
+  }
 }

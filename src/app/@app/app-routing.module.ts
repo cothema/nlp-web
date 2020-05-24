@@ -64,6 +64,11 @@ const routes: Routes = [
     canActivateChild: [NotAuthGuard],
   },
   {
+    path: 'search',
+    loadChildren: () =>
+      import('./pages/home/home.module').then(m => m.HomeModule),
+  },
+  {
     path: 'search/:query',
     loadChildren: () =>
       import('./pages/home/home.module').then(m => m.HomeModule),
