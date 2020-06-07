@@ -23,6 +23,19 @@
         </button>
       </div>
     </div>
+    <div *ngIf="box['steps']" class="text-left">
+      <ol>
+        <li *ngFor="let step of box['steps'];">
+          <div class="step" style="display: inline-block">
+            <h4 *ngIf="step['title']">{{step['title']}}</h4>
+            <h5 *ngIf="step['description']" [innerHTML]="step['description']" [mathjax]></h5>
+            <div *ngIf="step['latex']" [mathjax]>
+              \( {{step['latex']}} \)
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
   </div>
   <div *ngIf="debug" class="card-footer">
     <ngx-json-viewer [expanded]="false" [json]="box"></ngx-json-viewer>

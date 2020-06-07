@@ -1,0 +1,33 @@
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ol li {
+  counter-increment: my-awesome-counter;
+  margin: 1rem 0.25rem;
+  line-height: 40px;
+  padding-left: 3rem;
+}
+
+ol li::before {
+  display: inline-block;
+  content: counter(my-awesome-counter) ".";
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: #6FB45D;
+  border-radius: 25px;
+  color: white;
+  text-align: center;
+  margin-right: 0.5rem;
+  font-size: 24px;
+  font-weight: 700;
+  margin-left: -3rem;
+  vertical-align: top;
+}
+
+.step {
+  white-space: pre-wrap;
+}

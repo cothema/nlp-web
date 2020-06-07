@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
 import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/operators';
@@ -23,6 +24,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('searchField') searchField: ElementRef;
   devMode = false;
   faExclamationTriangle = faExclamationTriangle;
+  faThumbsUp = faThumbsUp;
+  faThumbsDown = faThumbsDown;
 
   constructor(
     private router: Router,

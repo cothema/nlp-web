@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   staging: false,
   apiUrl: 'http://localhost:3001',
-  mathApiUrl: 'https://math-php.herokuapp.com',
+  mathApiUrl: 'http://localhost:8000', // https://math-php.herokuapp.com
   gtagId: '',
   firebaseConfig: {
     apiKey: 'AIzaSyBngu03A50vQA5laXvcB4J9Ki_OQO8zs3M',
