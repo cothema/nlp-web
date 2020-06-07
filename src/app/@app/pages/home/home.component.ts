@@ -26,6 +26,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
   faExclamationTriangle = faExclamationTriangle;
   faThumbsUp = faThumbsUp;
   faThumbsDown = faThumbsDown;
+  specialSymbols = [
+    '+', '-', '*', '/', '=',
+    'π',
+    '^(x)', '!', '√',
+    'sin(x)', 'cos(x)', 'tan(x)', 'cotan(x)'
+  ];
+  exampleInputs = [
+    '250',
+    '5+8',
+    '(158+2/2)*2',
+    '2π*80',
+    '198+15=205'
+  ];
 
   constructor(
     private router: Router,
@@ -80,5 +93,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   onSearch(query: string): void {
     this.searchField.nativeElement.focus();
     this.solveRequest(query);
+  }
+
+  onAddSymbol(symbol: string): void {
+    this.formModel.text += symbol;
+    this.searchField.nativeElement.focus();
   }
 }

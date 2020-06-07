@@ -9,6 +9,14 @@
              type="text">
     </div>
 
+    <div class="pb-2">
+      <span (click)="onAddSymbol(specialSymbol)"
+            *ngFor="let specialSymbol of specialSymbols"
+            class="btn btn-outline-dark m-1" style="border-radius: 0">
+        {{specialSymbol}}
+      </span>
+    </div>
+
     <button [disabled]="!analysisForm.form.valid" class="btn btn-lg btn-outline-primary" type="submit">
       Vyhledat
     </button>
@@ -58,4 +66,13 @@
     &nbsp;
     <fa-icon [icon]="faThumbsDown"></fa-icon>
   </div>
+</div>
+
+<div class="text-center pt-4">
+  <h4>Jaké příklady můžete hledat?</h4>
+  <span (click)="onSearch(exampleInput)"
+        *ngFor="let exampleInput of exampleInputs"
+        class="btn btn-dark m-1">
+      {{exampleInput}}
+    </span>
 </div>
