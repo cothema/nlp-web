@@ -90,8 +90,9 @@ const routes: Routes = [
     preloadingStrategy: PreloadAllModules,
     useHash: false,
     anchorScrolling: 'enabled',
-    scrollPositionRestoration: 'enabled'
-  })],
+    scrollPositionRestoration: 'enabled',
+    relativeLinkResolution: 'legacy'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LearnMaterialHeaderComponent } from './learn-material-header.component';
 
@@ -6,7 +6,7 @@ describe('LearnMaterialHeaderComponent', () => {
   let component: LearnMaterialHeaderComponent;
   let fixture: ComponentFixture<LearnMaterialHeaderComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [LearnMaterialHeaderComponent]
     })

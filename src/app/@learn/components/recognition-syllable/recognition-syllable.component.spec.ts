@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { RecognitionSyllableComponent } from './recognition-syllable.component';
 
@@ -6,7 +6,7 @@ describe('RecognitionSyllableComponent', () => {
   let component: RecognitionSyllableComponent;
   let fixture: ComponentFixture<RecognitionSyllableComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [RecognitionSyllableComponent]
     })

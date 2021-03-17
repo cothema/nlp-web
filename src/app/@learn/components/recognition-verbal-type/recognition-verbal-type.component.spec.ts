@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { RecognitionVerbalTypeComponent } from './recognition-verbal-type.component';
 
@@ -6,7 +6,7 @@ describe('RecognitionVerbalTypeComponent', () => {
   let component: RecognitionVerbalTypeComponent;
   let fixture: ComponentFixture<RecognitionVerbalTypeComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ RecognitionVerbalTypeComponent ]
     })
