@@ -37,7 +37,7 @@
     "firebase": "^7.14.5",
     "ngx-json-viewer": "^2.4.0",
     "ngx-mathjax": "0.0.13",
-    "rxjs": "~6.5.4",
+    "rxjs": "~6.6.6",
     "tslib": "^1.10.0",
     "xregexp": "^4.3.0",
     "zone.js": "~0.10.2"
