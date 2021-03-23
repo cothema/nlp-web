@@ -12,16 +12,16 @@
       <select (change)="onFeatureLevelChanged($event)"
               [ngModel]="featureLevelService.currentLevel"
               class="form-control">
-        <option *ngIf="featureLevelService.LEVEL_PROD >= featureLevelService.currentLevel"
-                [value]="featureLevelService.LEVEL_PROD">
+        <option *ngIf="featureLevelService.levelProd >= featureLevelService.currentLevel"
+                [value]="featureLevelService.levelProd">
           Produkce
         </option>
-        <option *ngIf="featureLevelService.LEVEL_BETA >= featureLevelService.currentLevel"
-                [value]="featureLevelService.LEVEL_BETA">
+        <option *ngIf="featureLevelService.levelBeta >= featureLevelService.currentLevel"
+                [value]="featureLevelService.levelBeta">
           Beta
         </option>
-        <option *ngIf="featureLevelService.LEVEL_DEV >= featureLevelService.currentLevel"
-                [value]="featureLevelService.LEVEL_DEV">
+        <option *ngIf="featureLevelService.levelDev >= featureLevelService.currentLevel"
+                [value]="featureLevelService.levelDev">
           Ve vývoji
         </option>
       </select>

@@ -1,3 +1,3 @@
 export enum StorageKeys {
-  FEATURE_LEVEL_KEY = 'settings.feature_level',
+  featureLevelKey = 'settings.feature_level',
 }

@@ -28,10 +28,10 @@ export class TrainSyllablesComponent implements OnInit {
   isAnswerCorrect: boolean;
   submitted = false;
   actualWord: {
-    answerSyllables?: IToken<ISyllable>[],
-    answerSyllablesOrig?: IToken<ISyllable>[],
-    string: string,
-    correctAnswer?: number,
+    answerSyllables?: IToken<ISyllable>[];
+    answerSyllablesOrig?: IToken<ISyllable>[];
+    string: string;
+    correctAnswer?: number;
   };
 
   constructor(

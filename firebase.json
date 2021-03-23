@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/nlp20-web",
+    "public": "dist/cothema-nlp-web",
     "ignore": [
       "firebase.json",
       "**/.*",

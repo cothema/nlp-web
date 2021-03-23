@@ -1,56 +1,56 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { StorageKeys } from '../../@app/enums/storage-keys';
-import { LocalStorageService } from '../../@app/services/storage/local-storage';
+import { Injectable } from "@angular/core";
+import { environment } from "../../../environments/environment";
+import { StorageKeys } from "../../@app/enums/storage-keys";
+import { LocalStorageService } from "../../@app/services/storage/local-storage";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class FeatureLevelService {
 
-  LEVEL_NONE = 0; // Feature is hidden for everyone
-  LEVEL_DEV = 10; // Feature is visible only for developers
-  LEVEL_BETA = 20; // Feature is visible for beta testers
-  LEVEL_PROD = 30; // Feature is visible for all
+  levelNone = 0; // Feature is hidden for everyone
+  levelDev = 10; // Feature is visible only for developers
+  levelBeta = 20; // Feature is visible for beta testers
+  levelProd = 30; // Feature is visible for all
+
+  private privCurrentLevel;
 
   constructor(
     private storage: LocalStorageService,
   ) {
     const levelInStorage = this.currentLevelInStorage;
-    this._currentLevel = (levelInStorage !== null) ? levelInStorage : this.defaultLevel;
+    this.privCurrentLevel = (levelInStorage !== null) ? levelInStorage : this.defaultLevel;
   }
 
-  private _currentLevel;
-
   get currentLevel(): number {
-    return this._currentLevel;
+    return this.privCurrentLevel;
   }
 
   set currentLevel(value: number) {
-    if ([this.LEVEL_DEV, this.LEVEL_BETA, this.LEVEL_PROD].includes(value)) {
-      this.storage.store(StorageKeys.FEATURE_LEVEL_KEY, value.toString());
-      this._currentLevel = value;
+    if ([this.levelDev, this.levelBeta, this.levelProd].includes(value)) {
+      this.storage.store(StorageKeys.featureLevelKey, value.toString());
+      this.privCurrentLevel = value;
     } else {
-      console.error('Invalid value!');
+      console.error("Invalid value!");
     }
   }
 
   private get defaultLevel(): number {
-    if (environment.hasOwnProperty('staging') && environment['staging'] === true) {
-      return this.LEVEL_BETA;
-    } else if (environment.hasOwnProperty('production') && environment['production'] === false) {
-      return this.LEVEL_DEV;
+    if (environment.hasOwnProperty("staging") && environment["staging"] === true) {
+      return this.levelBeta;
+    } else if (environment.hasOwnProperty("production") && environment["production"] === false) {
+      return this.levelDev;
     }
-    return this.LEVEL_PROD;
+    return this.levelProd;
   }
 
   private get currentLevelInStorage(): number | null {
-    const storageValue = this.storage.get(StorageKeys.FEATURE_LEVEL_KEY);
+    const storageValue = this.storage.get(StorageKeys.featureLevelKey);
 
     return (storageValue !== null) ? +storageValue : null;
   }
 
   isAvailable(requiredMinimumLevel: number): boolean {
-    return requiredMinimumLevel >= this._currentLevel;
+    return requiredMinimumLevel >= this.privCurrentLevel;
   }
 }

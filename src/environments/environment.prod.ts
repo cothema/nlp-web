@@ -5,13 +5,13 @@ export const environment = {
   mathApiUrl: 'https://math-php.herokuapp.com',
   gtagId: 'G-1VLL726PKM',
   firebaseConfig: {
-    apiKey: 'AIzaSyBngu03A50vQA5laXvcB4J9Ki_OQO8zs3M',
-    authDomain: 'nlp20-tool.firebaseapp.com',
-    databaseURL: 'https://nlp20-tool.firebaseio.com',
-    projectId: 'nlp20-tool',
-    storageBucket: 'nlp20-tool.appspot.com',
-    messagingSenderId: '764074145248',
-    appId: '1:764074145248:web:f1b65afd44f01776382785',
-    measurementId: 'G-KHHNZB0H9X'
+    apiKey: 'AIzaSyCzVx5wQW8XgpUHh7JrX6dj0clnmZob-Gg',
+    authDomain: 'cothema-nlp.firebaseapp.com',
+    databaseURL: 'https://cothema-nlp.firebaseio.com',
+    projectId: 'cothema-nlp',
+    storageBucket: 'cothema-nlp.appspot.com',
+    messagingSenderId: '999160855321',
+    appId: '1:999160855321:web:09cabb0eceab4952206388',
+    measurementId: 'G-0H6RRDW9LJ'
   },
 };

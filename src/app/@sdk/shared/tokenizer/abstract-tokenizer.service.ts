@@ -27,8 +27,8 @@ export abstract class AbstractTokenizerService<T> {
     word: string,
     lang: string = 'cs',
   ): Promise<{
-    syllables: IToken<T>[],
-    syllablesOrig: IToken<T>[]
+    syllables: IToken<T>[];
+    syllablesOrig: IToken<T>[];
   }> {
     const tokens = await this.tokenize(word, lang);
 

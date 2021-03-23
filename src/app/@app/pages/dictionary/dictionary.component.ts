@@ -19,9 +19,9 @@ export class DictionaryComponent implements OnInit {
   };
   isSubmitted = false;
   response: {
-    originalString?: string,
-    syllables?: IToken<ISyllable>[],
-    syllablesOrig?: IToken<ISyllable>[]
+    originalString?: string;
+    syllables?: IToken<ISyllable>[];
+    syllablesOrig?: IToken<ISyllable>[];
   } = {};
   faWikipediaW = faWikipediaW;
 

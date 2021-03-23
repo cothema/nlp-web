@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { LearnMaterial } from "../../../@learn/model/learn-material";
-import { LearnMaterialRepositoryService } from "../../../@learn/services/learn-material-repository.service";
+import { Component, OnInit } from '@angular/core';
+import { LearnMaterial } from '../../../@learn/model/learn-material';
+import { LearnMaterialRepositoryService } from '../../../@learn/services/learn-material-repository.service';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
