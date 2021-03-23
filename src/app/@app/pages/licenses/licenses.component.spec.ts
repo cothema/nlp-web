@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { StorageComponent } from './storage.component';
+import { LicensesComponent } from './licenses.component';
 
-describe('StorageComponent', () => {
-  let component: StorageComponent;
-  let fixture: ComponentFixture<StorageComponent>;
+describe('LicensesComponent', () => {
+  let component: LicensesComponent;
+  let fixture: ComponentFixture<LicensesComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [StorageComponent]
+      declarations: [LicensesComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StorageComponent);
+    fixture = TestBed.createComponent(LicensesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

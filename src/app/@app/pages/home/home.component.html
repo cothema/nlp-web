@@ -1,78 +1,60 @@
-<div class="pt-5 pb-2">
-  <form #analysisForm="ngForm" (ngSubmit)="onSubmit()" class="p-4 text-center">
-    <div class="form-group">
-      <input #searchField #text="ngModel" [(ngModel)]="formModel.text" class="form-control"
-             id="text"
-             name="text"
-             placeholder="Zadejte dotaz..." required
-             style="font-size: 2em;text-align: center"
-             type="text">
-    </div>
-
-    <div class="pb-2">
-      <span (click)="onAddSymbol(specialSymbol)"
-            *ngFor="let specialSymbol of specialSymbols"
-            class="btn btn-outline-dark m-1" style="border-radius: 0">
-        {{specialSymbol}}
-      </span>
-    </div>
-
-    <button [disabled]="!analysisForm.form.valid" class="btn btn-lg btn-outline-primary" type="submit">
-      Vyhledat
-    </button>
-
-    <div *ngIf="formModel.text.length" class="form-group form-check text-center pt-3">
-      <input [(ngModel)]="devMode" [ngModelOptions]="{standalone: true}" id="devMode" type="checkbox">
-      <label for="devMode">
-        &nbsp;Vývojářský režim
-      </label>
-    </div>
-  </form>
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h2 class="display-4">
+    Chytrá příručka českého jazyka
+  </h2>
 </div>
 
-<div *ngIf="response.output">
-  <div *ngFor="let box of response.output['interpretation']['boxes']" class="p-3">
-    <app-search-box (search)="onSearch($event)" [box]="box" [debug]="devMode"></app-search-box>
-  </div>
+<div style="max-width: 700px;margin:0 auto;">
+  <input (input)="onSearch()" [(ngModel)]="search" class="form-control" placeholder="Vyhledat"
+         style="font-size: 1.7em;text-align: center;"
+         type="text"/>
+</div>
 
-  <div class="row pt-3">
-    <div class="col-md-10">
-      <h2>Řešení</h2>
+<ng-template #contentCard let-contentElement="content">
+  <div class="card">
+    <div class="card-header">
+      <h4>{{contentElement.title}}</h4>
     </div>
-    <div class="col-md-2">
-      <a class="btn btn-sm btn-outline-dark"
-         href="https://github.com/mathematicator-core/search/issues"
-         target="_blank">
-        <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp; Nahlásit chybu
-      </a>
+    <div class="card-body">
+      {{contentElement.description}}
+      <div *ngIf="contentElement.descriptionNextSteps">
+        <hr/>
+        {{contentElement.descriptionNextSteps}}
+      </div>
+    </div>
+    <div class="card-footer">
+      <button *ngIf="contentElement.routerLink" [routerLink]="'/learn/' + contentElement.routerLink"
+              class="btn btn-lg btn-block btn-outline-primary"
+              type="button">
+        Naučit se
+      </button>
+      <ng-container *ngIf="!contentElement.routerLink">
+        <i>Připravujeme…</i>
+      </ng-container>
     </div>
   </div>
+</ng-template>
 
-  <div *ngFor="let box of response.output['response']['boxes']" class="p-3">
-    <app-search-box (search)="onSearch($event)" [box]="box" [debug]="devMode"></app-search-box>
+<div *ngIf="search">
+  <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h3 class="display-4">
+      Vyhledávání
+    </h3>
   </div>
-
-  <div class="text-center p-3 font-weight-bold">
-    Matematické výsledky poskytuje:
-    <a href="https://mathematicator.com" target="_blank">
-      Mathematicator.com
-    </a>
-  </div>
-
-  <div class="text-center p-3 font-weight-bold">
-    Našli jste co jste hledali?
-    &nbsp;
-    <fa-icon [icon]="faThumbsUp"></fa-icon>
-    &nbsp;
-    <fa-icon [icon]="faThumbsDown"></fa-icon>
+  <div class="row">
+    <div *ngFor="let searchContentElement of searchResults" class="col-md-4">
+      <ng-container *ngTemplateOutlet="contentCard; context: {content : searchContentElement}"></ng-container>
+    </div>
   </div>
 </div>
 
-<div class="text-center pt-4">
-  <h4>Jaké příklady můžete hledat?</h4>
-  <span (click)="onSearch(exampleInput)"
-        *ngFor="let exampleInput of exampleInputs"
-        class="btn btn-dark m-1">
-      {{exampleInput}}
-    </span>
+<div *ngIf="!search">
+  <div class="pt-3 pt-md-5">
+    <div class="row">
+      <div *ngFor="let contentElement of content" class="col-md-4">
+        <ng-container *ngTemplateOutlet="contentCard; context: {content : contentElement}"></ng-container>
+      </div>
+    </div>
+  </div>
 </div>
+

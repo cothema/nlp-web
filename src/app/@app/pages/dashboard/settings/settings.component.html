@@ -1,12 +1,12 @@
 <div class="p-3 text-center">
-  <h2>Settings</h2>
+  <h2>Nastavení</h2>
 </div>
 
 <table class="table table-striped" style="max-width: 600px;margin: 0 auto;">
   <tbody>
   <tr>
     <td>
-      Feature level:
+      Úroveň funkcí:
     </td>
     <td>
       <select (change)="onFeatureLevelChanged($event)"
@@ -14,7 +14,7 @@
               class="form-control">
         <option *ngIf="featureLevelService.LEVEL_PROD >= featureLevelService.currentLevel"
                 [value]="featureLevelService.LEVEL_PROD">
-          Production
+          Produkce
         </option>
         <option *ngIf="featureLevelService.LEVEL_BETA >= featureLevelService.currentLevel"
                 [value]="featureLevelService.LEVEL_BETA">
@@ -22,7 +22,7 @@
         </option>
         <option *ngIf="featureLevelService.LEVEL_DEV >= featureLevelService.currentLevel"
                 [value]="featureLevelService.LEVEL_DEV">
-          In development
+          Ve vývoji
         </option>
       </select>
     </td>

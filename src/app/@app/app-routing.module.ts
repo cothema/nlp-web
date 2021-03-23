@@ -37,19 +37,14 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
   },
   {
-    path: 'datasets',
-    loadChildren: () =>
-      import('./pages/datasets/datasets.module').then(m => m.DatasetsModule),
-  },
-  {
     path: 'links',
     loadChildren: () =>
       import('./pages/links/links.module').then(m => m.LinksModule),
   },
   {
-    path: 'pricing',
+    path: 'licenses',
     loadChildren: () =>
-      import('./pages/pricing/pricing.module').then(m => m.PricingModule),
+      import('./pages/licenses/licenses.module').then(m => m.LicensesModule),
   },
   {
     path: 'learn',

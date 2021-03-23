@@ -8,7 +8,7 @@ import { AbstractTokenizerService } from '../../../shared/tokenizer/abstract-tok
 })
 export class SyllableTokenizerService extends AbstractTokenizerService<ISyllable> {
 
-  protected apiSubPath = '/phonetics/tokenizer/syllables';
+  protected apiSubPath = '/phonetics/tokenizer/syllable';
 
   constructor(
     apiService: ApiService,

@@ -1,21 +1,11 @@
 <div
   class="fixed-top d-print-none d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
   <h5 class="my-0 mr-md-auto font-weight-normal" routerLink="/" style="cursor: pointer;">
-    Cothema
+    Cothema NLP
     <sub *ngIf="featureLevelService.currentLevel === featureLevelService.LEVEL_BETA">beta</sub>
     <sub *ngIf="featureLevelService.currentLevel === featureLevelService.LEVEL_DEV">dev</sub>
   </h5>
   <nav class="my-2 my-md-0 mr-md-3">
-    <a *ngIf="lang === 'cs' && featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV"
-       class="p-2 text-dark"
-       routerLink="/learn">
-      Učivo ZŠ
-    </a>
-    <a *ngIf="featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV"
-       class="p-2 text-dark"
-       routerLink="/">
-      Rozbor textu
-    </a>
   </nav>
   <a class="btn btn-outline-primary" routerLink="/sign-in">
     <fa-icon [icon]="faUser"></fa-icon>&nbsp;
@@ -43,46 +33,28 @@
         <small class="text-muted">Oceníme případný zájem o spolupráci nebo jakoukoliv formu podpory.</small>
       </div>
       <div class="col-6 col-md">
-        <h5>Jazykověda</h5>
         <ul class="list-unstyled text-small">
           <li>
-            <a *ngIf="featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV"
-               class="text-muted"
-               routerLink="/datasets">
-              Datové sady
+            <a class="text-muted" routerLink="/api">API pro vývojáře</a>
+          </li>
+          <li *ngIf="featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV">
+            <a class="text-muted" routerLink="/licenses">
+              Licence
             </a>
           </li>
           <li>
-            <a class="text-muted" routerLink="/api">API pro vývojáře</a></li>
-          <li>
-            <a *ngIf="featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV"
-               class="text-muted" routerLink="/edit">
-              Pomoc s editací dat
+            <a class="text-muted" href="https://github.com/cothema/nlp20-web" target="_blank">
+              <fa-icon [icon]="faGithub"></fa-icon>&nbsp; GitHub
             </a>
           </li>
         </ul>
       </div>
       <div class="col-6 col-md">
-        <h5>Praxe a výuka</h5>
         <ul class="list-unstyled text-small">
           <li>
             <a *ngIf="lang === 'cs' && featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV"
                class="text-muted" routerLink="/learn">
-              Učivo pro ZŠ
-            </a>
-          </li>
-          <li>
-            <a *ngIf="featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV"
-               class="text-muted"
-               routerLink="/search">
-              Vyhledávání dat
-            </a>
-          </li>
-          <li>
-            <a *ngIf="featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV"
-               class="text-muted"
-               routerLink="/">
-              Analýza textu
+              Učivo ZŠ
             </a>
           </li>
           <li>
@@ -93,13 +65,6 @@
             </a>
           </li>
           <li>
-            <a *ngIf="featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV"
-               class="text-muted"
-               routerLink="/spelling">
-              Kontrola pravopisu
-            </a>
-          </li>
-          <li>
             <a class="text-muted" routerLink="/links">
               Užitečné odkazy
             </a>
@@ -107,18 +72,9 @@
         </ul>
       </div>
       <div class="col-6 col-md">
-        <h5>O projektu</h5>
         <ul class="list-unstyled text-small">
           <li>
-            <a class="text-muted" routerLink="/about">O aplikaci</a>
-          </li>
-          <li *ngIf="featureLevelService.currentLevel <= featureLevelService.LEVEL_DEV">
-            <a class="text-muted" routerLink="/pricing">
-              <fa-icon [icon]="faDollarSign"></fa-icon>&nbsp;&nbsp; Ceník a licence</a>
-          </li>
-          <li>
-            <a class="text-muted" href="https://github.com/cothema/nlp20-web" target="_blank">
-              <fa-icon [icon]="faGithub"></fa-icon>&nbsp; GitHub</a>
+            <a class="text-muted" routerLink="/about">O projektu</a>
           </li>
           <li>
             <a class="text-muted" routerLink="/contacts">Kontakty</a>

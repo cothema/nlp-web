@@ -10,7 +10,6 @@ import { LearnMaterialRepositoryService } from './services/learn-material-reposi
 })
 export class LearnComponent implements OnInit {
 
-  content: LearnMaterial[] = [];
   contentByClasses: LearnMaterialByClass[] = [];
   search: string;
   searchResults: LearnMaterial[] = [];

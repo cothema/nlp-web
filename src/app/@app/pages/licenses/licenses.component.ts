@@ -3,11 +3,11 @@ import { faBalanceScale } from '@fortawesome/free-solid-svg-icons/faBalanceScale
 import { faDatabase } from '@fortawesome/free-solid-svg-icons/faDatabase';
 
 @Component({
-  selector: 'app-pricing',
-  templateUrl: './pricing.component.html',
-  styleUrls: ['./pricing.component.scss']
+  selector: 'app-licenses',
+  templateUrl: './licenses.component.html',
+  styleUrls: ['./licenses.component.scss']
 })
-export class PricingComponent implements OnInit {
+export class LicensesComponent implements OnInit {
   faBalanceScale = faBalanceScale;
   faDatabase = faDatabase;
   activePricingModel?: 'basic' | 'nonprofit';

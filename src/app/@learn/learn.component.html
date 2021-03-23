@@ -1,11 +1,7 @@
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h2 class="display-4">
     Učivo základních škol
   </h2>
-  <p class="lead p-3">
-    Pojďme si společně projít učivo probírané na základních školách
-    roztříděné dle ročníků.
-  </p>
 </div>
 
 <div style="max-width: 700px;margin:0 auto;">
@@ -40,7 +36,7 @@
 </ng-template>
 
 <div *ngIf="search">
-  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h3 class="display-4">
       Vyhledávání
     </h3>
@@ -54,7 +50,7 @@
 
 <div *ngIf="!search">
   <div *ngFor="let contentElementByClasses of contentByClasses">
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h3 class="display-4">
         {{contentElementByClasses.class}}. třída
       </h3>
