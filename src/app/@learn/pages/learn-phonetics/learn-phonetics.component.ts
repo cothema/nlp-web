@@ -19,7 +19,7 @@ export class LearnPhoneticsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.learnMaterial = this.repository.findOneBy({routerLink: 'syllables'});
+    this.learnMaterial = this.repository.findOneBy({routerLink: 'phonetics'});
   }
 
 }

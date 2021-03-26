@@ -13,19 +13,5 @@
 </div>
 
 <div [ngSwitch]="activeTab" class="p-3">
-  <app-train-syllables *ngSwitchCase="'exercise'"></app-train-syllables>
   <app-recognition-syllable *ngSwitchCase="'recognition'"></app-recognition-syllable>
-  <div *ngSwitchCase="'theory'">
-    <div class="p-3">
-      Nejjednoduší způsob určení slabik je jejich vytleskávání.
-      Tento postup by měli zvládat u jednoduších slov i děti
-      při svém vstupu na základní školu.
-      Jak toto učivo zvládáte si můžete vyzkoušet v jednom
-      z cvičení.
-    </div>
-
-    <app-learn-material-links [material]="learnMaterial"></app-learn-material-links>
-
-    <app-learn-material-footer [material]="learnMaterial"></app-learn-material-footer>
-  </div>
 </div>

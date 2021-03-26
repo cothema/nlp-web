@@ -122,6 +122,10 @@ export class LearnMaterialRepositoryService {
         title: 'Druhy souvětí',
         description: 'Rozlišení věty jednočlené, vícečlenné a větného ekvivalentu a určení vztahu mezi větami.',
       },
+      {
+        title: 'Výslovnost',
+        routerLink: 'phonetics'
+      },
     ];
   }
 

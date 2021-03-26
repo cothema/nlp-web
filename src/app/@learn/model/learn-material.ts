@@ -1,7 +1,7 @@
 import { ExternalLink } from '../../@shared/model/external-link';
 
 export interface LearnMaterial {
-  class: number;
+  class?: number;
   title: string;
   description?: string;
   routerLink?: string;
